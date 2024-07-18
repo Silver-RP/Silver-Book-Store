@@ -1,0 +1,139 @@
+body {
+    padding-top: 80px; 
+  }
+  #header {
+    background-color: #fff; 
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(217, 168, 168, 0.1); 
+    position: fixed; 
+  }
+  
+  .navbar {
+    padding: 0;
+  }
+  
+  .navbar-brand {
+    padding: 0.5rem 1rem;
+  }
+  
+  .navbar-nav {
+    align-items: center;
+  }
+  
+  .nav-link {
+    color: #333; 
+    padding: 0.5rem 1rem; 
+  }
+  
+  .nav-link:hover {
+    color: #555; 
+  }
+  
+  .dropdown-menu {
+    margin-top: 0; 
+  }
+  
+  .dropdown-menu .dropdown-item {
+    padding: 0.5rem 1rem; 
+  }
+  
+  .dropdown-menu .dropdown-header {
+    font-size: 0.875rem; 
+    padding: 0.5rem 1rem;
+  }
+  
+  .dropdown-divider {
+    margin: 0; 
+  }
+  
+  .badge-number {
+    font-size: 0.75rem; 
+    margin-left: 5px;
+  }
+  
+  .dropdown-footer {
+    padding: 0.5rem 1rem;
+  }
+
+  .fr{
+    width: 600px !important;
+    height: 47px;
+
+  }
+  .bts{
+    padding: 10px 26.2px !important;
+    border-radius: 2px !important;
+    border-color:  rgb(228, 147, 48) !important;
+    background-color: rgb(228, 147, 48) !important;
+  }
+
+  .dr{
+    border: none !important;
+  }
+  .dr-a:hover{
+    background-color: #f4b54f !important;
+    font-size: medium !important;
+    font-weight: 700 !important;
+  }
+
+  .d-ms{
+    max-width: 300px;
+    margin-left: 100px;
+    right: inherit  !important;
+    left: -90px !important;
+    font-size: small !important;
+    width: 260px;
+  }
+  
+  .dropdown-menu.show {
+    display: block;
+    position: static;
+    float: none;
+  }
+  .ms-item{
+    height: 110px;
+    margin: 0 !important;
+    padding: 5px !important;
+  }
+
+  /* .ms-item img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+} */
+.ms-item div {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis !important ;
+    white-space: nowrap !important;
+}
+.ms-item div h6 {
+    margin: 0;
+    font-size: 1em;
+}
+.ms-item div p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 2 !important; /* Adjust the number of lines as needed */
+    overflow: hidden ;
+    white-space: normal !important;
+    text-overflow: ellipsis !important ;
+}
+.custom-line-height{
+    line-height: 2.3 !important;
+}
+
+.a-tabel-hover:hover{
+    font-size: medium !important;
+    font-weight: 600 !important;
+}
+
+.btn-hover:hover{
+    font-weight: 600 !important;
+    opacity: 1 !important;
+}
+
+/* Add book */
