@@ -1,0 +1,45 @@
+/* Styling for the add user form */
+.form-add-user {
+    margin-bottom: 15px;
+}
+
+.label-add-user {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.input-add-user {
+    width:50%;
+    max-height: 30px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.gender-add{
+    margin-bottom: -20px !important;
+}
+.gender-select-add-user {
+    display: flex;
+    flex-wrap: wrap;
+}
+.inline-label-add {
+    margin-right: 15px;
+}
+.select-role{
+    max-height: 40px;
+}
+
+.btn-add-user {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-add-user:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+}

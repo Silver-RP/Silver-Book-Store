@@ -31,7 +31,7 @@
                                                 <i class="fa-regular fa-heart"></i>
                                             </button>
                                             <div class="image-container">
-                                                <img src="public/images/carousel/c1.png" alt="Book 1">
+                                                <img src="public/images/categories/narotu-book.jpeg" alt="Book 1">
                                             </div>
                                             <h5>Book Name 1</h5>
                                             <h6 class="mb-1 ">Author 1</h6>
@@ -40,7 +40,7 @@
                                                 <del style="margin-left: 10px;">$10.00</del>
                                             </div>
                                             <button class="btn btn-primary btn-buy">Buy Now</button>
-                                            <button class="btn btn-secondary">Add to Cart</button>
+                                            <button class="btn btn-secondary btn-add">Add to Cart</button>
                                             <p class="mt-2 mb-1">Rating: ★★★★☆</p>
                                         </div>
                                         <div class="book-item book-card m-2">
@@ -48,7 +48,7 @@
                                                 <i class="fa-regular fa-heart"></i>
                                             </button>
                                             <div class="image-container">
-                                                <img src="public/images/carousel/c1.png" alt="Book 1">
+                                                <img src="public/images/categories/naruto-book.jpeg" alt="Book 1">
                                             </div>
                                             <h5>Book Name 1</h5>
                                             <h6 class="mb-1 ">Author 1</h6>
@@ -57,7 +57,7 @@
                                                 <del style="margin-left: 10px;">$10.00</del>
                                             </div>
                                             <button class="btn btn-primary btn-buy">Buy Now</button>
-                                            <button class="btn btn-secondary">Add to Cart</button>
+                                            <button class="btn btn-secondary btn-add">Add to Cart</button>
                                             <p class="mt-2 mb-1">Rating: ★★★★☆</p>
                                         </div>
                                         <div class="book-item book-card m-2">
@@ -65,7 +65,7 @@
                                                 <i class="fa-regular fa-heart"></i>
                                             </button>
                                             <div class="image-container">
-                                                <img src="public/images/carousel/c1.png" alt="Book 1">
+                                                <img src="public/images/categories/naruto.jpeg" alt="Book 1">
                                             </div>
                                             <h5>Book Name 1</h5>
                                             <h6 class="mb-1 ">Author 1</h6>
@@ -74,7 +74,7 @@
                                                 <del style="margin-left: 10px;">$10.00</del>
                                             </div>
                                             <button class="btn btn-primary btn-buy">Buy Now</button>
-                                            <button class="btn btn-secondary">Add to Cart</button>
+                                            <button class="btn btn-secondary btn-add">Add to Cart</button>
                                             <p class="mt-2 mb-1">Rating: ★★★★☆</p>
                                         </div>
                                         <div class="book-item book-card m-2">
@@ -82,7 +82,7 @@
                                                 <i class="fa-regular fa-heart"></i>
                                             </button>
                                             <div class="image-container">
-                                                <img src="public/images/carousel/c1.png" alt="Book 1">
+                                                <img src="public/images/categories/naruto1.jpeg" alt="Book 1">
                                             </div>
                                             <h5>Book Name 1</h5>
                                             <h6 class="mb-1 ">Author 1</h6>
@@ -91,7 +91,7 @@
                                                 <del style="margin-left: 10px;">$10.00</del>
                                             </div>
                                             <button class="btn btn-primary btn-buy">Buy Now</button>
-                                            <button class="btn btn-secondary">Add to Cart</button>
+                                            <button class="btn btn-secondary btn-add">Add to Cart</button>
                                             <p class="mt-2 mb-1">Rating: ★★★★☆</p>
                                         </div>
                                     </div>
@@ -143,7 +143,7 @@
                                                 <i class="fa-regular fa-heart"></i>
                                             </button>
                                             <div class="image-container">
-                                                <img src="public/images/carousel/c1.png" alt="Book 1">
+                                                <img src="public/images/categories/naruto1.jpeg" alt="Book 1">
                                             </div>
                                             <h5>Book Name 1</h5>
                                             <h6 class="mb-1 ">Author 1</h6>
@@ -152,7 +152,7 @@
                                                 <del style="margin-left: 10px;">$10.00</del>
                                             </div>
                                             <button class="btn btn-primary btn-buy">Buy Now</button>
-                                            <button class="btn btn-secondary">Add to Cart</button>
+                                            <button class="btn btn-secondary btn-add">Add to Cart</button>
                                             <p class="mt-2 mb-1">Rating: ★★★★☆</p>
                                         </div>
                                         <div class="book-item book-card m-2">
@@ -160,7 +160,7 @@
                                                 <i class="fa-regular fa-heart"></i>
                                             </button>
                                             <div class="image-container">
-                                                <img src="public/images/carousel/c1.png" alt="Book 1">
+                                                <img src="public/images/categories/naruto1.jpeg" alt="Book 1">
                                             </div>
                                             <h5>Book Name 1</h5>
                                             <h6 class="mb-1 ">Author 1</h6>
@@ -169,7 +169,7 @@
                                                 <del style="margin-left: 10px;">$10.00</del>
                                             </div>
                                             <button class="btn btn-primary btn-buy">Buy Now</button>
-                                            <button class="btn btn-secondary">Add to Cart</button>
+                                            <button class="btn btn-secondary btn-add">Add to Cart</button>
                                             <p class="mt-2 mb-1">Rating: ★★★★☆</p>
                                         </div>
                                         <div class="book-item book-card m-2">
@@ -177,7 +177,7 @@
                                                 <i class="fa-regular fa-heart"></i>
                                             </button>
                                             <div class="image-container">
-                                                <img src="public/images/carousel/c1.png" alt="Book 1">
+                                                <img src="public/images/categories/naruto1.jpeg" alt="Book 1">
                                             </div>
                                             <h5>Book Name 1</h5>
                                             <h6 class="mb-1 ">Author 1</h6>
@@ -186,7 +186,7 @@
                                                 <del style="margin-left: 10px;">$10.00</del>
                                             </div>
                                             <button class="btn btn-primary btn-buy">Buy Now</button>
-                                            <button class="btn btn-secondary">Add to Cart</button>
+                                            <button class="btn btn-secondary btn-add">Add to Cart</button>
                                             <p class="mt-2 mb-1">Rating: ★★★★☆</p>
                                         </div>
                                         <div class="book-item book-card m-2">
@@ -194,7 +194,7 @@
                                                 <i class="fa-regular fa-heart"></i>
                                             </button>
                                             <div class="image-container">
-                                                <img src="public/images/carousel/c1.png" alt="Book 1">
+                                                <img src="public/images/categories/naruto1.jpeg" alt="Book 1">
                                             </div>
                                             <h5>Book Name 1</h5>
                                             <h6 class="mb-1 ">Author 1</h6>
@@ -203,7 +203,7 @@
                                                 <del style="margin-left: 10px;">$10.00</del>
                                             </div>
                                             <button class="btn btn-primary btn-buy">Buy Now</button>
-                                            <button class="btn btn-secondary">Add to Cart</button>
+                                            <button class="btn btn-secondary btn-add">Add to Cart</button>
                                             <p class="mt-2 mb-1">Rating: ★★★★☆</p>
                                         </div>
                                     </div>
@@ -255,7 +255,7 @@
                                                 <i class="fa-regular fa-heart"></i>
                                             </button>
                                             <div class="image-container">
-                                                <img src="public/images/carousel/c1.png" alt="Book 1">
+                                                <img src="public/images/categories/naruto1.jpeg" alt="Book 1">
                                             </div>
                                             <h5>Book Name 1</h5>
                                             <h6 class="mb-1 ">Author 1</h6>
@@ -264,7 +264,7 @@
                                                 <del style="margin-left: 10px;">$10.00</del>
                                             </div>
                                             <button class="btn btn-primary btn-buy">Buy Now</button>
-                                            <button class="btn btn-secondary">Add to Cart</button>
+                                            <button class="btn btn-secondary btn-add">Add to Cart</button>
                                             <p class="mt-2 mb-1">Rating: ★★★★☆</p>
                                         </div>
                                         <div class="book-item book-card m-2">
@@ -272,7 +272,7 @@
                                                 <i class="fa-regular fa-heart"></i>
                                             </button>
                                             <div class="image-container">
-                                                <img src="public/images/carousel/c1.png" alt="Book 1">
+                                                <img src="public/images/categories/naruto1.jpeg" alt="Book 1">
                                             </div>
                                             <h5>Book Name 1</h5>
                                             <h6 class="mb-1 ">Author 1</h6>
@@ -281,7 +281,7 @@
                                                 <del style="margin-left: 10px;">$10.00</del>
                                             </div>
                                             <button class="btn btn-primary btn-buy">Buy Now</button>
-                                            <button class="btn btn-secondary">Add to Cart</button>
+                                            <button class="btn btn-secondary btn-add">Add to Cart</button>
                                             <p class="mt-2 mb-1">Rating: ★★★★☆</p>
                                         </div>
                                         <div class="book-item book-card m-2">
@@ -289,7 +289,7 @@
                                                 <i class="fa-regular fa-heart"></i>
                                             </button>
                                             <div class="image-container">
-                                                <img src="public/images/carousel/c1.png" alt="Book 1">
+                                                <img src="public/images/categories/naruto1.jpeg" alt="Book 1">
                                             </div>
                                             <h5>Book Name 1</h5>
                                             <h6 class="mb-1 ">Author 1</h6>
@@ -298,7 +298,7 @@
                                                 <del style="margin-left: 10px;">$10.00</del>
                                             </div>
                                             <button class="btn btn-primary btn-buy">Buy Now</button>
-                                            <button class="btn btn-secondary">Add to Cart</button>
+                                            <button class="btn btn-secondary btn-add">Add to Cart</button>
                                             <p class="mt-2 mb-1">Rating: ★★★★☆</p>
                                         </div>
                                         <div class="book-item book-card m-2">
@@ -306,7 +306,7 @@
                                                 <i class="fa-regular fa-heart"></i>
                                             </button>
                                             <div class="image-container">
-                                                <img src="public/images/carousel/c1.png" alt="Book 1">
+                                                <img src="public/images/categories/naruto1.jpeg" alt="Book 1">
                                             </div>
                                             <h5>Book Name 1</h5>
                                             <h6 class="mb-1 ">Author 1</h6>
@@ -315,7 +315,7 @@
                                                 <del style="margin-left: 10px;">$10.00</del>
                                             </div>
                                             <button class="btn btn-primary btn-buy">Buy Now</button>
-                                            <button class="btn btn-secondary">Add to Cart</button>
+                                            <button class="btn btn-secondary btn-add">Add to Cart</button>
                                             <p class="mt-2 mb-1">Rating: ★★★★☆</p>
                                         </div>
                                     </div>
@@ -366,7 +366,7 @@
             </button>
           </div>
     </section>
-    <!--7.  -->
+    <!--7.  FEATURED BOOKS-->
    <section class="mt-5">
     <div class="container mb-5">
         <div>
@@ -398,7 +398,7 @@
                                 <i class="fa-regular fa-heart"></i>
                             </button>
                             <div class="image-container">
-                                <img src="public/images/carousel/c1.png" alt="Book 1">
+                                <img src="public/images/categories/naruto1.jpeg" alt="Book 1">
                             </div>
                             <h5>Book Name 1</h5>
                             <h6 class="mb-1 ">Author 1</h6>
@@ -407,7 +407,7 @@
                                 <del style="margin-left: 10px;">$10.00</del>
                             </div>
                             <button class="btn btn-primary btn-buy">Buy Now</button>
-                            <button class="btn btn-secondary">Add to Cart</button>
+                            <button class="btn btn-secondary btn-add">Add to Cart</button>
                             <p class="mt-2 mb-1">Rating: ★★★★☆</p>
                         </div>
                         <div class="book-item book-card m-2 book-item1">
@@ -415,7 +415,7 @@
                                  <i class="fa-regular fa-heart"></i>
                              </button>
                              <div class="image-container">
-                                 <img src="public/images/carousel/c1.png" alt="Book 1">
+                                 <img src="public/images/categories/naruto1.jpeg" alt="Book 1">
                              </div>
                              <h5>Book Name 1</h5>
                              <h6 class="mb-1 ">Author 1</h6>
@@ -424,7 +424,7 @@
                                  <del style="margin-left: 10px;">$10.00</del>
                              </div>
                              <button class="btn btn-primary btn-buy">Buy Now</button>
-                             <button class="btn btn-secondary">Add to Cart</button>
+                             <button class="btn btn-secondary btn-add">Add to Cart</button>
                              <p class="mt-2 mb-1">Rating: ★★★★☆</p>
                          </div>
                         <div class="book-item book-card m-2 book-item1">
@@ -432,7 +432,7 @@
                                 <i class="fa-regular fa-heart"></i>
                             </button>
                             <div class="image-container">
-                                <img src="public/images/carousel/c1.png" alt="Book 1">
+                                <img src="public/images/categories/naruto1.jpeg" alt="Book 1">
                             </div>
                             <h5>Book Name 1</h5>
                             <h6 class="mb-1 ">Author 1</h6>
@@ -441,7 +441,7 @@
                                 <del style="margin-left: 10px;">$10.00</del>
                             </div>
                             <button class="btn btn-primary btn-buy">Buy Now</button>
-                            <button class="btn btn-secondary">Add to Cart</button>
+                            <button class="btn btn-secondary btn-add">Add to Cart</button>
                             <p class="mt-2 mb-1">Rating: ★★★★☆</p>
                         </div>
                         <div class="book-item book-card m-2 book-item1">
@@ -449,7 +449,7 @@
                                 <i class="fa-regular fa-heart"></i>
                             </button>
                             <div class="image-container">
-                                <img src="public/images/carousel/c1.png" alt="Book 1">
+                                <img src="public/images/categories/naruto1.jpeg" alt="Book 1">
                             </div>
                             <h5>Book Name 1</h5>
                             <h6 class="mb-1 ">Author 1</h6>
@@ -458,7 +458,7 @@
                                 <del style="margin-left: 10px;">$10.00</del>
                             </div>
                             <button class="btn btn-primary btn-buy">Buy Now</button>
-                            <button class="btn btn-secondary">Add to Cart</button>
+                            <button class="btn btn-secondary btn-add">Add to Cart</button>
                             <p class="mt-2 mb-1">Rating: ★★★★☆</p>
                         </div>
                         <div class="book-item book-card m-2 book-item1">
@@ -466,7 +466,7 @@
                                 <i class="fa-regular fa-heart"></i>
                             </button>
                             <div class="image-container">
-                                <img src="public/images/carousel/c1.png" alt="Book 1">
+                                <img src="public/images/categories/naruto1.jpeg" alt="Book 1">
                             </div>
                             <h5>Book Name 1</h5>
                             <h6 class="mb-1 ">Author 1</h6>
@@ -475,7 +475,7 @@
                                 <del style="margin-left: 10px;">$10.00</del>
                             </div>
                             <button class="btn btn-primary btn-buy">Buy Now</button>
-                            <button class="btn btn-secondary">Add to Cart</button>
+                            <button class="btn btn-secondary btn-add">Add to Cart</button>
                             <p class="mt-2 mb-1">Rating: ★★★★☆</p>
                         </div>
                     </div>
@@ -497,7 +497,7 @@
         </div>
     </div>
    </section>
-   <!-- 7.1. -->
+   <!-- 7.1. RECENT TRENDING BOOKS-->
    <section class="mt-5">
     <div class="container mb-5">
         <div>
@@ -529,7 +529,7 @@
                                 <i class="fa-regular fa-heart"></i>
                             </button>
                             <div class="image-container">
-                                <img src="public/images/carousel/c1.png" alt="Book 1">
+                                <img src="public/images/categories/naruto1.jpeg" alt="Book 1">
                             </div>
                             <h5>Book Name 1</h5>
                             <h6 class="mb-1 ">Author 1</h6>
@@ -538,7 +538,7 @@
                                 <del style="margin-left: 10px;">$10.00</del>
                             </div>
                             <button class="btn btn-primary btn-buy">Buy Now</button>
-                            <button class="btn btn-secondary">Add to Cart</button>
+                            <button class="btn btn-secondary btn-add">Add to Cart</button>
                             <p class="mt-2 mb-1">Rating: ★★★★☆</p>
                         </div>
                         <div class="book-item book-card m-2 book-item1">
@@ -546,7 +546,7 @@
                                  <i class="fa-regular fa-heart"></i>
                              </button>
                              <div class="image-container">
-                                 <img src="public/images/carousel/c1.png" alt="Book 1">
+                                 <img src="public/images/categories/naruto1.jpeg" alt="Book 1">
                              </div>
                              <h5>Book Name 1</h5>
                              <h6 class="mb-1 ">Author 1</h6>
@@ -555,7 +555,7 @@
                                  <del style="margin-left: 10px;">$10.00</del>
                              </div>
                              <button class="btn btn-primary btn-buy">Buy Now</button>
-                             <button class="btn btn-secondary">Add to Cart</button>
+                             <button class="btn btn-secondary btn-add">Add to Cart</button>
                              <p class="mt-2 mb-1">Rating: ★★★★☆</p>
                          </div>
                         <div class="book-item book-card m-2 book-item1">
@@ -563,7 +563,7 @@
                                 <i class="fa-regular fa-heart"></i>
                             </button>
                             <div class="image-container">
-                                <img src="public/images/carousel/c1.png" alt="Book 1">
+                                <img src="public/images/categories/naruto1.jpeg" alt="Book 1">
                             </div>
                             <h5>Book Name 1</h5>
                             <h6 class="mb-1 ">Author 1</h6>
@@ -572,7 +572,7 @@
                                 <del style="margin-left: 10px;">$10.00</del>
                             </div>
                             <button class="btn btn-primary btn-buy">Buy Now</button>
-                            <button class="btn btn-secondary">Add to Cart</button>
+                            <button class="btn btn-secondary btn-add">Add to Cart</button>
                             <p class="mt-2 mb-1">Rating: ★★★★☆</p>
                         </div>
                         <div class="book-item book-card m-2 book-item1">
@@ -580,7 +580,7 @@
                                 <i class="fa-regular fa-heart"></i>
                             </button>
                             <div class="image-container">
-                                <img src="public/images/carousel/c1.png" alt="Book 1">
+                                <img src="public/images/categories/naruto1.jpeg" alt="Book 1">
                             </div>
                             <h5>Book Name 1</h5>
                             <h6 class="mb-1 ">Author 1</h6>
@@ -589,7 +589,7 @@
                                 <del style="margin-left: 10px;">$10.00</del>
                             </div>
                             <button class="btn btn-primary btn-buy">Buy Now</button>
-                            <button class="btn btn-secondary">Add to Cart</button>
+                            <button class="btn btn-secondary btn-add">Add to Cart</button>
                             <p class="mt-2 mb-1">Rating: ★★★★☆</p>
                         </div>
                         <div class="book-item book-card m-2 book-item1">
@@ -597,7 +597,7 @@
                                 <i class="fa-regular fa-heart"></i>
                             </button>
                             <div class="image-container">
-                                <img src="public/images/carousel/c1.png" alt="Book 1">
+                                <img src="public/images/categories/naruto1.jpeg" alt="Book 1">
                             </div>
                             <h5>Book Name 1</h5>
                             <h6 class="mb-1 ">Author 1</h6>
@@ -606,7 +606,7 @@
                                 <del style="margin-left: 10px;">$10.00</del>
                             </div>
                             <button class="btn btn-primary btn-buy">Buy Now</button>
-                            <button class="btn btn-secondary">Add to Cart</button>
+                            <button class="btn btn-secondary btn-add">Add to Cart</button>
                             <p class="mt-2 mb-1">Rating: ★★★★☆</p>
                         </div>
                     </div>

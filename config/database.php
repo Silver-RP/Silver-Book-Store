@@ -8,17 +8,6 @@ class Database {
     public function __construct() {
         $this->conn = DatabaseConnection::getConnection();
     }
-
-    // public function query($sql, $params = []) {
-    //     try {
-    //         $stmt = $this->conn->prepare($sql);
-    //         $stmt->execute($params);
-    //         return $stmt;
-    //     } catch (PDOException $e) {
-    //         echo "Query failed: " . $e->getMessage();
-    //         return false;
-    //     }
-    // }
     public function query($sql, $params = []) {
         try {
             $stmt = $this->conn->prepare($sql);
@@ -51,8 +40,7 @@ class Database {
     }
 
     public function insert($sql, $params = []) {
-        $this->query($sql, $params);
-        return $this->conn->lastInsertId();
+        return $this->query($sql, $params);
     }
 
     public function delete($sql, $params = []) {
@@ -83,6 +71,14 @@ class Database {
             return 0;
         }
     }
+
+    // public function execute($query, $params = []) {
+    //     $stmt = $this->conn->prepare($query);
+    //     foreach ($params as $key => $value) {
+    //         $stmt->bindValue($key, $value);
+    //     }
+    //     return $stmt->execute();
+    // }
     
 }
 ?>

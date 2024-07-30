@@ -1,8 +1,70 @@
 
+.success-message {
+    width: auto;
+    position: fixed;
+    top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(238, 232, 221, 0.8);
+    color: rgb(233, 89, 0); 
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.sticky-form-search {
+    position: -webkit-sticky; 
+    position: sticky;
+    top: 0; 
+    background-color: #fff; 
+    z-index: 999; 
+}
+
+/* Additional styles for proper layout */
+
+
+/*  */
 .container-f{
     padding: 10px 20px !important;
 }
 
+/* My Account -  */
+.ul-myAcount{
+    max-width: 160px;
+    left: 10px !important;
+    padding: 10px 10px 10px 10px !important;
+    margin-left: 20px ;
+    font-size: 14px !important;
+    border: 1px solid #e77007 !important;
+
+}
+.btn-signin{
+    background-color: #e77007 !important;
+    max-width: 70% !important;
+    max-height: 40px !important;
+    color: white !important;
+    border: none !important;
+    margin-left: 19px !important;
+    border-radius: 30px !important;
+    font-weight: bold !important;
+}
+.btn-signin:hover{
+    background-color: #f96c0d !important;
+    color: rgb(247, 242, 236) !important;
+}
+.btn-signup{
+    font-size: 12px !important;
+    border-bottom: 1px solid #e77007 0.5 !important;
+    text-decoration: underline !important;
+    margin-top: 3px !important;
+}
+.btn-account:hover{
+    background-color: rgb(245, 233, 220) !important;
+    text-decoration: underline !important;
+    border-left: 3px solid #e77007 !important;
+}
 
 .nav-l{
     color: black !important;
@@ -35,11 +97,15 @@
     width: 700px !important;
     height: 100%;
     border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 .bts{
-    padding: 10px 26.2px !important;
-    border-radius: 2px !important;
+    margin-left: -1px !important;
+    padding: 10px 24px !important;
+    border-radius: 0px !important;
+    border-color: rgb(228, 147, 48) !important;
     background-color: rgb(228, 147, 48) !important;
 }
 
@@ -51,6 +117,17 @@
 .cart-icon{
     font-size: 20px !important;
     color: black !important;
+    position: relative;
+}
+.cart-count {
+    position: absolute;
+    top: -20px; 
+    right: 58px; 
+    background-color: red; 
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px; 
 }
 
 .nav-l3{
@@ -61,6 +138,7 @@
     height: 33px !important;
     border-right: 1px solid #bdb690 !important;
     opacity: 0.8;
+    transition: all 300ms ease-in-out;
 }
 .nav-l3:hover{
     background-color: #dadad6 !important;
@@ -80,12 +158,19 @@
     color: unset;
     box-sizing: border-box;
     text-align: center;
-    border: solid 1px #f3f3f3;
+    border: solid 3px #f3f3f3;
     padding: 20px 15px;
     border-radius: 8px;
     transition: all 300ms ease-in-out;
     width: 192px;
     height: 200px;
+    transition: all 2s ease-in-out;
+}
+.book-re:hover{
+    color: rgb(188, 68, 4);
+    border: solid 1px #e77007;
+    background-color: #e3e3e2;
+    background-image: linear-gradient(rgb(239, 7, 7) ,#f59506, rgb(247, 242, 196));
 }
 
 .s5{
@@ -188,10 +273,16 @@
 
 }
 
-.book-card:hover{
+.book-card:hover {
     border:  1.5px solid #e77007;
     background-image: linear-gradient(red , #f8d093, yellow , rgb(253, 248, 242));
 }
+.book-card:hover .favorite-btn i{
+    background-color: #ffffff;
+    border-radius: 50%; 
+    padding: 5px; 
+}
+
 
 .btn-buy{
     border-color: #e77007 !important;
@@ -251,8 +342,8 @@
 
 .favorite-btn {
     position: absolute;
-    top: 25px;
-    right: 10px;
+    top: -6px;
+    right: -5px;
     background: transparent;
     border: none;
     color: red;
@@ -322,12 +413,13 @@
 .book-item1{
         flex: 0 0 18%;
         max-width: 20%;
-        max-height: 390px;
+        /* max-height: 390px; */
         padding-top: 15px;
         box-sizing: border-box;
         text-align: center;
         position: relative;
 }
+
 .bcl-lb{
     position: absolute;
     left: -85px !important;
@@ -339,4 +431,9 @@
 }
 .bpn1{
     background-color: #e77007;
+}
+.btn-back:hover{
+    background-color: #f69947 !important; 
+    color: white;
+
 }

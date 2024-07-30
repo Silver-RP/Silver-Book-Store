@@ -71,6 +71,7 @@ class BookController
             $bookDescription = $_POST['book_description'];
             $bookYearOfPublication = $_POST['book_year_of_publication'];
             $bookPrice = $_POST['book_price'];
+            $bookOldPrice = $_POST['book_old_price'];
             $bookDateOfStorage = $_POST['book_date_of_storage'];
             $bookStockQuantity = $_POST['book_stock_quantity'];
             $cateId = $_POST['cate_id'];
@@ -110,6 +111,7 @@ class BookController
                 $bookDescription,
                 $bookYearOfPublication,
                 $bookPrice,
+                $bookOldPrice,
                 $bookDateOfStorage,
                 $bookStockQuantity,
                 $cateId,
@@ -143,6 +145,7 @@ class BookController
         $book_description = $_POST['book_description'];
         $book_year_of_publication = $_POST['book_year_of_publication'];
         $book_price = $_POST['book_price'];
+        $bookOldPrice = $_POST['book_old_price'];
         $book_date_of_storage = $_POST['book_date_of_storage'];
         $book_stock_quantity = $_POST['book_stock_quantity'];
         $cate_id = $_POST['cate_id'];
@@ -166,7 +169,7 @@ class BookController
     
         $result = $this->bookModel->updateBook(
             $id, $book_name, $book_title, $book_image, $book_description, $book_year_of_publication, 
-            $book_price, $book_date_of_storage, $book_stock_quantity, $cate_id, $author_id, $publisher_id
+            $book_price, $bookOldPrice, $book_date_of_storage, $book_stock_quantity, $cate_id, $author_id, $publisher_id
         );
     
         if ($result) {

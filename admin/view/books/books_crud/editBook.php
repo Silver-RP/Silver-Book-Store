@@ -24,11 +24,16 @@
                         <label for="book_title" class="form-label">Book Title</label>
                         <input type="text" class="form-control" id="book_title" name="book_title" value="<?php echo htmlspecialchars($book['book_title']); ?>">
                     </div>
-                    
+
+                    <div class="mb-3">
+                        <label for="book_year_of_publication" class="form-label">Year of Publication</label>
+                        <input type="number" class="form-control" id="book_year_of_publication" name="book_year_of_publication" min="1900" max="2024" value="<?php echo htmlspecialchars($book['book_year_of_publication']); ?>" required>
+                    </div>
+
                     <div class="mb-3">
                         <label for="book_image" class="form-label">Book Image</label>
                         <input type="file" class="form-control" id="book_image" name="book_image">
-                        <img src="/SilverBook/public/images/book_name/<?php echo htmlspecialchars($book['book_image']); ?>" alt="<?php echo htmlspecialchars($book['book_image']); ?>" style="max-width: 80px; max-height: 100px;">
+                        <img src="/SilverBook/public/images/book_name/<?php echo htmlspecialchars($book['book_image']); ?>" alt="<?php echo htmlspecialchars($book['book_image']); ?>" style="max-width: 80px; max-height: 100px; margin-top:3px">
                     </div>
                     
                     <div class="mb-3">
@@ -39,14 +44,16 @@
                 
                 <!-- Second Column -->
                 <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="book_year_of_publication" class="form-label">Year of Publication</label>
-                        <input type="number" class="form-control" id="book_year_of_publication" name="book_year_of_publication" min="1900" max="2024" value="<?php echo htmlspecialchars($book['book_year_of_publication']); ?>" required>
-                    </div>
+                    
                     
                     <div class="mb-3">
                         <label for="book_price" class="form-label">Book Price</label>
                         <input type="number" class="form-control" id="book_price" name="book_price" value="<?php echo htmlspecialchars($book['book_price']); ?>" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="book_old_price" class="form-label">Book Old Price</label>
+                        <input type="number" class="form-control" id="book_old_price" name="book_old_price" value="<?php echo htmlspecialchars($book['book_old_price']); ?>" required>
                     </div>
                     
                     <div class="mb-3">

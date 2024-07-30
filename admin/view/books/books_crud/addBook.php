@@ -37,6 +37,10 @@
                         <input type="number" class="form-control" id="book_price" name="book_price" min="0" required>
                     </div>
                     <div class="mb-3">
+                        <label for="book_old_price" class="form-label">Old Price</label>
+                        <input type="number" class="form-control" id="book_old_price" name="book_old_price" min="0" required>
+                    </div>
+                    <div class="mb-3">
                         <label for="book_date_of_storage" class="form-label">Date of Storage</label>
                         <input type="date" class="form-control" id="book_date_of_storage" name="book_date_of_storage" required>
                     </div>

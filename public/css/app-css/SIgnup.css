@@ -1,0 +1,99 @@
+
+.cf{
+    padding: 20px;
+    margin-right: 125px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: small !important;
+}
+.form-group-signin {
+    margin-bottom: 15px;
+}
+.label-signin {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.input-signin {
+    width: 100%;
+    max-height: 32px;
+    padding: 8px;
+    margin: 5px 0 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    outline-color: rgb(246, 154, 34);
+}
+.ip-pa{
+    margin-bottom: 0px;
+}
+.inline-label-signin {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.fgs{
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+}
+.label-gender{
+    margin-bottom: -15px !important;
+}
+
+.btn-signin1 {
+    width: 100%;
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-signin1:hover {
+    background-color: #fc8727;
+}
+
+@media (max-width: 576px) {
+    .container-signin {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+.form-group-signin-eye{
+    position: relative;
+}
+/* .password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+} */
+
+.input-signin {
+    padding: 8px;
+    font-size: 16px;
+    flex: 1;
+    padding-right: 40px; /* space for the icon */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.toggle-password-1{
+    top: 60%;
+}
+.toggle-password i {
+    font-size: 16px;
+}

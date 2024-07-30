@@ -1,0 +1,289 @@
+/* BookDetail.css */
+
+
+.book-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.book-info {
+    padding: 20px;
+}
+
+.book-title-detail {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.rating {
+    font-size: 1.2em;
+    color: #f39c12; /* Star color */
+    margin: 10px 0;
+}
+
+.author-name, .book-types, .book-summary, .book-price {
+    margin: 10px 0;
+}
+
+.book-summary {
+    max-height: 100px;
+    overflow: hidden;
+    white-space: normal;
+    font-style: italic;
+}
+
+.book-price {
+    font-size: 1.5em;
+    color: #e74c3c;
+}
+
+.book-quantity {
+    margin: 10px 0;
+}
+
+.book-quantity input {
+    width: 60px;
+    text-align: center;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.btn-de {
+    padding: 10px 20px;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.btn-buy-now {
+    background-color: rgb(228,147,48) !important;
+    color: #fff !important;
+}
+
+.btn-buy-now:hover {
+    color:  rgb(11, 11, 10) !important;
+    font-weight: 600;
+}
+
+/* You can like - Line */
+.you-may-also-like {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 2rem 0; 
+}
+
+.you-may-also-like::before,
+.you-may-also-like::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #ccc;
+    margin: 0 1rem; 
+}
+
+.you-may-also-like .text {
+    padding: 0 1rem; 
+    font-weight: bold; 
+}
+
+/* Customer Reviews */
+.review-container {
+    margin-top: 50px;
+}
+.review-card {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.review-title {
+    font-weight: bold;
+}
+.review-rating {
+    color: gold;
+}
+.review-text {
+    margin-top: 10px;
+}
+.customer-say {
+    background-color: #f8f9fa;
+    padding: 30px;
+    margin-top: 50px;
+    border-radius: 5px;
+}
+.customer-say p {
+    margin-bottom: 0;
+}
+
+/* Prefooter  */
+.prefooter {
+    background-color: #f8f9fa;
+    padding: 40px 20px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+.prefooter h3 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.prefooter p {
+    margin-bottom: 30px;
+    font-size: 1.25rem;
+}
+.prefooter .btn {
+    font-size: 1.25rem;
+    padding: 10px 30px;
+    border: none;
+    background-color: #f39c12;
+}
+.prefooter .btn:hover {
+    color: black;
+    background-color: #f39c12;
+}
+
+
+.star-rating {
+    display: flex;
+    justify-content: center;
+    font-size: 1rem;
+    margin-bottom: 10px;
+
+}
+.star-rating input {
+    display: none;
+}
+.star-rating label {
+    font-size: 24px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.star-rating label {
+    cursor: pointer;
+    color: gray;
+}
+.star-rating label.hovered {
+    color: rgb(255, 162, 0);
+}
+.star-rating .fa-solid {
+    color:rgb(255, 157, 0);
+}
+.star-rating input:checked ~ label {
+    color: rgb(255, 157, 0);
+}
+
+.review-container {
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.review-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#commentForm {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#commentForm textarea {
+    width: 100%;
+    height: 100px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    outline-color: #f39c12;
+}
+
+#commentForm button {
+    color: #0b0b0b;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#commentForm button:hover {
+    background-color: #faa719;
+}
+
+#responseDiv {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+/* Render reviews */
+.review-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    text-align: left; 
+}
+
+.review-card .review-title {
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: underline !important;
+    margin-bottom: 5px;
+    position: relative; 
+}
+
+.review-card .review-date {
+    font-size: 12px;
+    color: #777;
+    position: absolute; 
+    right: 0;
+    bottom: 0;
+}
+
+.review-card .review-rating {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.review-card .review-text {
+    font-size: 14px;
+    color: #333;
+}
+.view-more-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    background-color: #f96f0d;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.view-more-btn:hover {
+    background-color: #f96f0d;
+}
+
+
+@media (max-width: 768px) {
+    .col-md-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+

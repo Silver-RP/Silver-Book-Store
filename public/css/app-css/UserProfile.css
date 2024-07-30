@@ -1,0 +1,97 @@
+.profile-container {
+    background: rgba(255, 255, 255, 0.1);
+    max-width: 50% !important;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 50px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.profile-container h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+.profile-table {
+    width: 100%;
+    margin-top: 30px;
+    border-collapse: collapse;
+}
+.profile-table td {
+    padding: 10px;
+    border: none;
+    font-size: 18px;
+}
+.profile-table td:first-child {
+    font-weight: bold;
+    text-align: right;
+    /* padding-right: 20px; */
+}
+.profile-table td:nth-child(2){
+    text-align: left;
+    /* padding-left: 20px; */
+}
+.buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.btn-custom-left {
+    margin-left: 15px !important;
+}
+.btn-custom:hover {
+    background-color: #2575fc;
+    color: #fff;
+}
+
+/* Edit */
+
+.edit-profile-container {
+    background: rgba(255, 255, 255, 0.1);
+    max-width: 30% !important;
+    margin: 50px auto;
+    line-height: 50px;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.edit-profile-container h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.btn-custom {
+    background-color: #fff;
+    color: #2575fc;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.btn-custom:hover {
+    background-color: #2575fc;
+    color: #fff;
+}
+.toggle-password-1,
+.toggle-password-2,
+.toggle-password-3{
+    position: absolute;
+    right: 10px;
+    top: 68%;
+}
+
+/* Change Password */
+
+/* .change-password-container {
+    background: rgba(255, 255, 255, 0.1);
+    max-width: 30% !important;
+    margin: 50px auto;
+    line-height: 50px;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+} */
+

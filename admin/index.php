@@ -1,9 +1,22 @@
 <?php
+session_abort();
+session_start();
+
 require_once('../config/database.php');
 
+if (!isset($_SESSION['user'])) {
+    header('Location: /SilverBook/admin/view/layout/login.php');
+    exit();
+}else if(!isset($_SESSION['user']['user_role']) || $_SESSION['user']['user_role'] != 0){
+    echo "<script>
+            alert('You do not have permission to access this page!');
+            window.location.href='/SilverBook/admin/view/layout/login.php';
+        </script>";
+    exit();
+}
+
+$user = $_SESSION['user'];
 require_once('view/layout/header.php');
-
-
 
 if (!empty($_GET['act'])) {
     $act = $_GET['act'];
@@ -13,6 +26,39 @@ if (!empty($_GET['act'])) {
             require_once('view/layout/home.php');
             break;
 
+        case 'user':
+            require_once('controller/UserController.php');
+            $userController = new UserController();
+            $action = isset($_GET['action']) ? $_GET['action'] : 'index';
+
+            switch($action){
+                case 'index':
+                    $userController->index();
+                    break;
+                case 'add':
+                    $userController->add();
+                    break;
+                case 'checkEmailPhone':
+                    $userController->checkEmailPhone();
+                    break;
+                case 'delete':
+                    $userController->delete();
+                    break;
+                case'confirmDelete':
+                    $userController->confirmDelete();
+                    break;
+                case 'edit':
+                    $userController->edit();
+                    break;
+                
+                // case 'signout':
+                //     $userController->signoutAccount();
+                //     break;
+                default:
+                    $userController->index();
+                    break;
+            }
+            break;
         case 'books':
             require_once('controller/BookController.php');
             $bookController = new BookController();
@@ -154,6 +200,35 @@ if (!empty($_GET['act'])) {
             }
             break;
 
+        case 'reviews':
+            require_once('controller/CommentController.php');
+            $commentController = new CommentController();
+            $action = isset($_GET['action']) ? $_GET['action'] : 'index';
+
+            switch ($action) {
+                case 'index':
+                    $commentController->index();
+                    break;
+                case 'show':
+                    $commentController->show();
+                    break;
+                case 'hide':
+                    $commentController->hide();
+                    break;
+                case 'allhide':
+                    $commentController->allHide();
+                    break;
+                case 'delete':
+                    $commentController->delete();
+                    break;
+                case 'confirmDelete':
+                    $commentController->confirmDelete();
+                    break;
+                default:
+                    $commentController->index();
+                    break;
+            }
+            break;
         default:
             require_once('view/layout/home.php');
             break;

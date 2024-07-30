@@ -4,8 +4,8 @@
     <div class="d-flex justify-content-between py-3 border-bottom">
         <h2>Book Detail </h2>
         <div>
-            <a href="edit.php?id=<?php echo htmlspecialchars($book['book_id']); ?>" class="btn btn-warning opacity-75 btn-hover">Edit</a>
-            <a href="delete.php?id=<?php echo htmlspecialchars($book['book_id']); ?>" class="btn btn-danger opacity-75 btn-hover" onclick="return confirm('Are you sure you want to delete this book?');">Delete</a>
+            <a href="?act=books&action=edit&page=1&id=<?php echo htmlspecialchars($book['book_id']); ?>" class="btn btn-warning opacity-75 btn-hover">Edit</a>
+            <a href="?act=books&action=delete&page=1&id=<?php echo htmlspecialchars($book['book_id']); ?>" class="btn btn-danger opacity-75 btn-hover" onclick="return confirm('Are you sure you want to delete this book?');">Delete</a>
         </div>
     </div>
     <div class="container pt-3">
@@ -18,6 +18,7 @@
                 <h4>Book Title: <?php echo htmlspecialchars($book['book_title']); ?></h4>
                 <p class="fw-semibold">Year of Publication: <?php echo htmlspecialchars($book['book_year_of_publication']); ?></p>
                 <p class="fw-semibold">Price: <?php echo htmlspecialchars($book['book_price']); ?></p>
+                <p class="fw-semibold">Old Price: <?php echo htmlspecialchars($book['book_old_price']); ?></p>
                 <p class="fw-semibold">Date of Storage: <?php echo htmlspecialchars($book['book_date_of_storage']); ?></p>
                 <p class="fw-semibold">Stock Quantity: <?php echo htmlspecialchars($book['book_stock_quantity']); ?></p>
                 <p class="fw-semibold">Category: <?php echo htmlspecialchars($cate['cate_name']); ?></p>

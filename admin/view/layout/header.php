@@ -8,6 +8,8 @@
 
   <!-- <link rel="stylesheet" href="../public/css/addmin/style.css"> (use for admin/index.php)  -->
   <link rel="stylesheet" href="/SilverBook/public/css/addmin/style.css"> 
+  <link rel="stylesheet" href="/SilverBook/public/css/addmin/addUser.css"> 
+  <link rel="stylesheet" href="/SilverBook/public/css/addmin/allComments.css"> 
 
   <!-- <link rel="stylesheet" type="text/css" href="../../../public/css/addmin/style.css"> (USE for view/books/Allbooks.php) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
@@ -99,6 +101,7 @@
                 <a class="dropdown-item dropdown-footer" href="#">Show all notifications</a>
               </div>
             </li>
+            <!-- messagesDropdown -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi bi-chat-left-text"></i>
@@ -138,11 +141,15 @@
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item dropdown-footer" href="#">Show all messages</a>
               </div>
-
+            <!-- Account Management -->
             </li>
             <li class="nav-item dropdown me-2">
               <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <span class="ms-2 fw-semibold">SilverBook</span>
+                <span class="ms-2 fw-semibold">
+                  <?php
+                    echo (isset($_SESSION['user'])) ? $_SESSION['user']['user_name'] : 'Kensilver Book';
+                   ?>
+                </span>
               </a>
               <div class="dropdown-menu dropdown-menu-end m-2 ps-2" aria-labelledby="profileDropdown">
                 <h6 class="dropdown-header">Silver Ken</h6>
@@ -162,7 +169,7 @@
                   <span>Need Help?</span>
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="/SilverBook/admin/view/layout/login.php">
                   <i class="bi bi-box-arrow-right"></i>
                   <span>Sign Out</span>
                 </a>
@@ -203,8 +210,8 @@
                 Users
               </a>
               <ul class="dropdown-menu bg-warning ps-4 dr" aria-labelledby="usersDropdown">
-                <li><a class="dropdown-item dr-a" href="#">All Users</a></li>
-                <li><a class="dropdown-item dr-a" href="#">Add User</a></li>
+                <li><a class="dropdown-item dr-a" href="?act=user&action=index">All Users</a></li>
+                <li><a class="dropdown-item dr-a" href="?act=user&action=add">Add User</a></li>
                 <li><a class="dropdown-item dr-a" href="#">Active Users</a></li>
                 <li><a class="dropdown-item dr-a" href="#">Inactive Users</a></li>
                 <li><a class="dropdown-item dr-a" href="#">Manage Roles</a></li>
@@ -227,11 +234,11 @@
             <li class="nav-item">
               <a class="nav-link active text-black dropdown-toggle" href="#" id="commentDropdown" role="button">
               <i class="fa-solid fa-comments"></i>
-                Comments
+                Reviews
               </a>
               <ul class="dropdown-menu bg-warning ps-4 dr" aria-labelledby="commentDropdown">
-                <li><a class="dropdown-item dr-a" href="#">All Comments</a></li>
-                <li><a class="dropdown-item dr-a" href="#">Hide Comments</a></li>
+                <li><a class="dropdown-item dr-a" href="?act=reviews&action=index">All Comments</a></li>
+                <li><a class="dropdown-item dr-a" href="?act=reviews&action=allhide">Hide Comments</a></li>
                 <li><a class="dropdown-item dr-a" href="#">Edit Comments</a></li>
                 <li><a class="dropdown-item dr-a" href="#">Delete Comments</a></li>
                 <li><a class="dropdown-item dr-a" href="#">Reply Management</a></li>
