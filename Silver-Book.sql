@@ -4,7 +4,9 @@ CREATE DATABASE `Silver-Book`;
 USE `Silver-Book`;
 		
 
+select * from category c ;
 select * from cart c ;
+select * from wishlist w ;
 select * from review  r;
 select * from orders o;
 select * from order_detail od;
@@ -12,6 +14,7 @@ select * from shipping_information si ;
 select * from payment_information pi2 ;
 
 SELECT * FROM book WHERE book_title LIKE '%a%';
+SELECT * FROM orders WHERE user_id = 2;
 
 
 drop table users ;
@@ -20,7 +23,11 @@ drop table users ;
 delete from author where id = 1000;
 delete from wishlist ;
 delete from users;
+delete from orders where order_id = 5;
+delete from orders;
+
 update author set author_id = 1 where author_id = 1000;
+
 
 CREATE TABLE category (
     cate_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -192,6 +199,10 @@ CREATE TABLE order_detail (
     FOREIGN KEY (order_id) REFERENCES orders(order_id),
     FOREIGN KEY (book_id) REFERENCES book(book_id)
 );
+ALTER TABLE order_detail
+ADD CONSTRAINT fk_order
+FOREIGN KEY (order_id) REFERENCES orders(order_id)
+ON DELETE CASCADE;
 
 
 
