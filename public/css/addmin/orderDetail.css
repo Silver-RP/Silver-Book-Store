@@ -1,0 +1,40 @@
+.mt-3.mb-5.row {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+
+.col-4 {
+    background-color: #fcd15c;
+    border: 1px solid #fafbfd;
+    border-radius: 0.25rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.col-4 h4 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #f9fafa;
+    background-color: rgb(224, 131, 10);
+    padding:0.2rem 1rem;
+
+}
+
+.col-4 p {
+    margin: 0.5rem 0;
+    padding-left: 1rem;
+    font-size: 1rem;
+    color: #2a2d30;
+}
+
+.col-4 p strong {
+    color: #212529;
+    font-weight: 600;
+}
+
+@media (max-width: 767px) {
+    .col-4 {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}

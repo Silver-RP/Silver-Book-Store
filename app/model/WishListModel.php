@@ -13,6 +13,28 @@ class WishListModel {
         // Return a boolean value or relevant message, not PDOStatement
         return $result;
     }
+    public function addAllToWishList($userId, $bookId) {
+        $sql = "INSERT INTO wishlist (user_id, book_id) VALUES (?, ?)";
+        $stmt = $this->db->prepare($sql);
+    
+        try {
+            $result = $stmt->execute([$userId, $bookId]);
+    
+            // Check if the insert was successful
+            if ($result) {
+                return true; // Successfully added to wishlist
+            } else {
+                // Optional: Log or handle the case where insertion fails
+                error_log("Failed to insert book ID $bookId for user ID $userId into wishlist.");
+                return false; // Failed to add to wishlist
+            }
+        } catch (PDOException $e) {
+            // Handle database errors
+            error_log("Database error: " . $e->getMessage());
+            return false; // Indicate an error occurred
+        }
+    }
+    
     public function checkIfExists($userId, $bookId){
         $sql = "SELECT * FROM wishlist WHERE user_id = ? AND book_id = ?";
         $stmt = $this->db->prepare($sql);

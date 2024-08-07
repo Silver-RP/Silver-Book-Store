@@ -5,20 +5,60 @@
     margin: 10px 0;
     height: auto;
 }
+/* Edit Check Box */
+.optionsEditCheckBox {
+    display: none;
+}
+.editCheckBox{
+    width: 10%;
+    padding-left: 20px;
+    background-color: #fa8b3b;
+    border-radius: 10px;
+    font-size: large;
+    margin-bottom: 10px;
+}
+.btn-later,
+.btn-wishlist,
+.btn-remove{
+    border-radius: 10px;
+    padding-left: 20px !important;
+    font-size: small !important;
+}
+.btn-later:hover,
+.btn-wishlist:hover,
+.btn-remove:hover{
+    color: white !important;
+    background-color: #fa8b3b !important;
+}
+.btn-later{
+    color: #fa8b3b !important;
+    border: 1px solid #fa8b3b !important;
+}
 
+.btn-wishlist{
+    color: #fc3131 !important;
+    border: 1px solid #fc3131 !important;
+}
+
+.btn-remove{
+    color: rgb(69, 68, 68) !important;
+    border: 1px solid #464544 !important;
+}
+
+/*  Books card and orders Summary  */
 .bookcard{
     flex: 1;
     height: auto;
 }
 
 .order-summary {
-    background-color: #f8f9fa;
-    padding: 20px;
-    line-height: 30px;
     position: sticky;
-    top: 20px;
-    height: 100vh;
+    top: 80px !important;
+    max-height: 100vh;
     overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .order-summary h4 {

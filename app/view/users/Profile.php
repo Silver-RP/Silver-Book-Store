@@ -23,7 +23,7 @@
                         <td><?php echo $user['user_email_phone']; ?></td>
                     </tr>
                 </table>
-                <div class="buttons">
+                <div class="buttons btn-prfile">
                     <a href="?route=user&subroute=viewEditprofile" class="btn btn-custom-left btn-outline-secondary">Edit</a>
                     <a href="?route=user&subroute=changepass" class="btn btn-custom-left btn-outline-secondary">Change Password</a>
                     <!-- <button class="btn btn-custom-left btn-outline-secondary" onclick="location.href='edit_profile.php'">Edit</button> -->

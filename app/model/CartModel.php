@@ -22,7 +22,6 @@ class CartModel {
         }
         return $this->db->query($sql, $params);
     }
-
     public function getBooksFromCart($userId) {
         $sql = "SELECT c.book_id, c.quantity, 
                        b.book_name, b.book_price, b.book_old_price, b.book_image, b.author_id, b.cate_id,
@@ -42,10 +41,13 @@ class CartModel {
         $sql = "SELECT * FROM book WHERE book_id = :book_id";
         return $this->db->getOne($sql, ['book_id' => $bookId]);
     }
-
     public function removeCart($userId, $bookId) {
         $sql = "DELETE FROM cart WHERE user_id = :user_id AND book_id = :book_id";
         return $this->db->delete($sql, ['user_id' => $userId, 'book_id' => $bookId]);
+    }
+    public function removeAllCart($userId) {
+        $sql = "DELETE FROM cart WHERE user_id = :user_id";
+        return $this->db->delete($sql, ['user_id' => $userId]);
     }
 }
 

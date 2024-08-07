@@ -19,9 +19,17 @@ class UserController
                 if (password_verify($password, $user['user_password'])) {
                     $_SESSION['user'] = $user;
                     if (isset($_SESSION['user'])) {
-                        // var_dump($_SESSION['user']);
+                        if(isset($_SESSION['redirect'])){
+                            $redirect = $_SESSION['redirect'];
+                            unset($_SESSION['redirect']);
+                            echo "<script>
+                                    // alert('Login successfully!');
+                                    window.location.href='$redirect';
+                                  </script>";
+                            exit;
+                        }
                         echo "<script>
-                            alert('Login successfully!');
+                            // alert('Login successfully!');
                             window.location.href='index.php';
                           </script>";
                     }
@@ -136,7 +144,7 @@ class UserController
         }
         session_destroy();
         echo "<script>
-                alert('You are Signed Out!');
+                // alert('You are Signed Out!');
                 window.location.href = 'index.php';
             </script>";
     }
@@ -274,66 +282,4 @@ class UserController
         }
         exit; 
     }
-    
-    // public function checkout(){
-    // if(isset($_SESSION['user'])){
-    // $user = $_SESSION['user'];
-    // $carts = $this->userModel->getCartByUserId($user['id']);
-    // if(isset($_POST['checkout'])){
-    // $total = $_POST['total'];
-    // $this->userModel->addOrder($user['id'], $total);
-    // $order = $this->userModel->getOrderLast();
-    // foreach($carts as $cart){
-    // $this->userModel->addOrderDetail($order['id'], $cart['book_id'], $cart['quantity']);
-    // }
-    // $this->userModel->deleteCartByUserId($user['id']);
-    // header('Location: index.php?route=user&subroute=order');
-    // }
-    // require_once('app/view/users/checkout.php');
-    // }else{
-    // header('Location: index.php?route=user&subroute=login');
-    // }
-    // }
-    // public function order(){
-    // if(isset($_SESSION['user'])){
-    // $user = $_SESSION['user'];
-    // $orders = $this->userModel->getOrderByUserId($user['id']);
-    // require_once('app/view/users/order.php');
-    // }else{
-    // header('Location: index.php?route=user&subroute=login');
-    // }
-    // }
-    // public function orderDetail(){
-    // if(isset($_SESSION['user'])){
-    // $user = $_SESSION['user'];
-    // $id = $_GET['id'];
-    // $order = $this->userModel->getOrderById($id);
-    // $orderDetails = $this->userModel->getOrderDetailByOrderId($id);
-    // require_once('app/view/users/orderDetail.php');
-    // }else{
-    // header('Location: index.php?route=user&subroute=login');
-    // }
-    // }
-
-    // public function orderHistory(){
-    // if(isset($_SESSION['user'])){
-    // $user = $_SESSION['user'];
-    // $orders = $this->userModel->getOrderByUserId($user['id']);
-    // require_once('app/view/users/orderHistory.php');
-    // }else{
-    // header('Location: index.php?route=user&subroute=login');
-    // }
-    // }
-    // public function orderHistoryDetail(){
-    // if(isset($_SESSION['user'])){
-    // $user = $_SESSION['user'];
-    // $id = $_GET['id'];
-    // $order = $this->userModel->getOrderById($id);
-    // $orderDetails = $this->userModel->getOrderDetailByOrderId($id);
-    // require_once('app/view/users/orderHistoryDetail.php');
-    // }else{
-    // header('Location: index.php?route=user&subroute=login');
-    // }
-    // }
-
 }

@@ -94,6 +94,7 @@
 /* Customer Reviews */
 .review-container {
     margin-top: 50px;
+    flex-direction: column-reverse;
 }
 .review-card {
     margin-bottom: 20px;

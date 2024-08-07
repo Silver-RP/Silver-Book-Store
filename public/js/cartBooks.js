@@ -88,7 +88,7 @@ function updateQuantity(bookId, newQuantity) {
 }
 
 function removeFromCart(bookId) {
-    if (confirm('Are you sure you want to remove this book from your cart?')) {
+    // if (confirm('Are you sure you want to remove this book from your cart?')) {
         let xhr = new XMLHttpRequest();
         xhr.open('POST', 'index.php?route=cart&subroute=remove', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -120,8 +120,122 @@ function removeFromCart(bookId) {
 
                     document.querySelector('.cart-count').textContent = response.cart;
                 }
+                window.location.reload();
             }
         };
         xhr.send('book_id=' + encodeURIComponent(bookId));
-    }
+    // }
+}
+
+function removeAllFromCart(){
+    if (confirm('Are you sure you want to remove all books from your cart?')) {
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', 'index.php?route=cart&subroute=removeAll', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                let response;
+                try {
+                    const jsonString = extractJson(xhr.responseText);
+                    response = JSON.parse(jsonString);
+                } catch (error) {
+                    console.error('Error parsing JSON when removing all books:', error);
+                    return;
+                }
+                if (response.success === true) {
+                    let booksElement = document.getElementById('books');
+                    if (booksElement) {
+                        booksElement.innerHTML = '';
+                    }
+                    let subtotalElement = document.getElementById('subtotal');
+                    subtotalElement.textContent = '$0.00';
+
+                    let totalBooksElement = document.getElementById('total-books');
+                    totalBooksElement.textContent = '0';
+
+                    let totalPriceElement = document.getElementById('total-price');
+                    totalPriceElement.textContent = '$0.00';
+
+                    document.querySelector('.cart-count').textContent = '0';
+                }
+                window.location.reload();
+            }
+        };
+        xhr.send();
+    }    
+
+}
+// Check box for editing cart items
+let isOptionsVisible = false;
+function toggleOptions() {
+    const optionsDiv = document.getElementById('options');
+    isOptionsVisible = !isOptionsVisible;
+    optionsDiv.style.display = isOptionsVisible ? 'block' : 'none';
+}
+
+// Save all items in the cart to the user's wishlist
+function saveToWishlist() {
+    const userId = document.getElementById('user-id').value;
+
+    // Fetch cart items
+    fetch("?route=cart&subroute=getAllItems", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(response => response.text())
+    .then(cartItemsData => {
+        const jsonStringItems = extractJson(cartItemsData);
+        let items;
+        try {
+            items = JSON.parse(jsonStringItems);
+        } catch (e) {
+            throw new Error("Failed to parse cart items JSON: " + e.message);
+        }
+        
+        console.log("Parsed cart items:", items);
+
+        // Check the structure of the items
+        if (!items || !Array.isArray(items.books)) {
+            throw new Error("Expected items.books to be an array, but got: " + (items ? typeof items.books : 'undefined'));
+        }
+
+        const formattedBooks = items.books.map(item => ({ book_id: item.book_id }));
+        const requestData = {
+            userId: userId,
+            books: formattedBooks
+        };
+
+        // Post data to wishlist
+        return fetch("?route=wish&subroute=addAll", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(requestData)
+        });
+    })
+    .then(response => response.text())
+    .then(text => {
+        const jsonStringAdded = extractJson(text);
+        let result;
+        try {
+            result = JSON.parse(jsonStringAdded);
+        } catch (e) {
+            throw new Error("Failed to parse wishlist response JSON: " + e.message);
+        }
+        
+        console.log("Parsed server response:", result);
+
+        if (result.success === true) {
+            alert("All items have been saved to your wishlist!");
+        } else {
+            alert("Failed to save items to wishlist: " + result.message);
+        }
+    })
+    .catch(error => {
+        console.error("Error saving items to wishlist:", error);
+        alert("An error occurred while saving items to your wishlist.");
+    });
 }

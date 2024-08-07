@@ -251,3 +251,4 @@ document.addEventListener('DOMContentLoaded', () => {
     const bookId = document.getElementById('book_id').value;
     fetchAndDisplayReviews(bookId);
 });
+

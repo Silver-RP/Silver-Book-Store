@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="public/css/app-css/Signup.css">
     <link rel="stylesheet" href="public/css/app-css/BooksInCart.css">
     <link rel="stylesheet" href="public/css/app-css/UserProfile.css">
+    <link rel="stylesheet" href="public/css/app-css/BuyNow.css">
+    <link rel="stylesheet" href="public/css/app-css/ViewOrder.css">
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
@@ -91,7 +93,7 @@
                                 <?php endif; ?>
                                 <hr style="margin: 0px !important;">
                                 <li><a class="dropdown-item btn-account" href="#">Manage Account</a></li>
-                                <li><a class="dropdown-item btn-account" href="#">Orders</a></li>
+                                <li><a class="dropdown-item btn-account" href="?route=order&subroute=viewOrder">Orders</a></li>
                                 <li><a class="dropdown-item btn-account" href="#">Help?</a></li>
                             </ul>
                         </div>
@@ -105,41 +107,47 @@
             </div>
         </div>
     </section>
+    <!-- 1.2 Form Search -->
     <section class="px-5 mb-3 ms-5 sticky-form-search">
-        <!-- 1.2 Form Search -->
-        <div class="col-md-12 s-logo-bar p-2 d-flex form-search">
+        <div class="d-flex align-items-center justify-content-between p-2">
             <a href="?route=home" class="logo-img p-2">
-                <img src="public/images/common/logo-img1.png" alt="Logo" width="200px" height="50px">
+                <img src="public/images/common/logo-img1.png" alt="Logo" width="200" height="50">
             </a>
-            <form method="get" action="index.php" class="form-inline my-2 my-lg-0 col-md-8 focus p-2">
-                <div class="input-group col-md-12 focus1 container dropdown">
-                    <a id="category-button" class="btn btn-secondary dropdown-toggle bt" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-category="all">
+
+            <form method="get" action="index.php" class="form-inline my-2 my-lg-0 d-flex align-items-center col-md-8">
+                <input type="hidden" name="route" value="search">
+                <input type="hidden" name="subroute" value="search">
+                <div class="input-group w-100">
+                    <!-- Dropdown menu -->
+                    <a id="category-button" class="btn btn-secondary dropdown-toggle btn-lg" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         ALL
                     </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#" data-category="books">Books</a></li>
-                        <li><a class="dropdown-item" href="#" data-category="category">Category</a></li>
-                        <li><a class="dropdown-item" href="#" data-category="audio-books">Audio Books</a></li>
-                        <li><a class="dropdown-item" href="#" data-category="ebooks">EBooks</a></li>
-                        <li><a class="dropdown-item" href="#" data-category="text-books">Text Books</a></li>
-                        <li><a class="dropdown-item" href="#" data-category="kids">Kids</a></li>
-                        <li><a class="dropdown-item" href="#" data-category="teens">Teens</a></li>
-                        <li><a class="dropdown-item" href="#" data-category="trend-books">Trend Books</a></li>
-                        <li><a class="dropdown-item" href="#" data-category="sale-books">Sale Books</a></li>
+                    <ul class="dropdown-menu dropdown-menu-lg">
+                        <li><a class="dropdown-item dr-it" href="#" data-category="books">Books</a></li>
+                        <li><a class="dropdown-item dr-it" href="#" data-category="category">Category</a></li>
+                        <li><a class="dropdown-item dr-it" href="#" data-category="audio-books">Audio Books</a></li>
+                        <li><a class="dropdown-item dr-it" href="#" data-category="ebooks">EBooks</a></li>
+                        <li><a class="dropdown-item dr-it" href="#" data-category="text-books">Text Books</a></li>
+                        <li><a class="dropdown-item dr-it" href="#" data-category="kids">Kids</a></li>
+                        <li><a class="dropdown-item dr-it" href="#" data-category="teens">Teens</a></li>
+                        <li><a class="dropdown-item dr-it" href="#" data-category="trend-books">Trend Books</a></li>
+                        <li><a class="dropdown-item dr-it" href="#" data-category="sale-books">Sale Books</a></li>
                     </ul>
-                    <div class="col-auto">
-                        <input type="text" id="search-input" name="keyword" class="form-control fr" placeholder="Search by Title, Author or Keyword">
-                        <div id="search-results"></div>
 
-                    </div>
-                    <button type="button" id="search-button" class="btn btn-primary bts">
+                    <!-- Search input -->
+                    <input type="text" id="search-input" name="keyword" class="form-control input-search" placeholder="Search by Title, Author or Keyword">
+
+                    <!-- Search button -->
+                    <button type="submit" id="search-button" class="btn btn-warning btn-lg">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
                 </div>
             </form>
+
+            <!-- Cart section -->
             <ul class="nav justify-content-end col-md-2 py-2 px-5">
                 <li class="nav-item">
-                    <a href="?route=cart&subroute=view" class="nav-link nav-l1">
+                    <a href="?route=cart&subroute=view" class="nav-link">
                         <span class="cart-icon">
                             <i class="fa-solid fa-cart-shopping fa-lg"></i>
                             <span class="cart-count">
@@ -150,10 +158,9 @@
                     </a>
                 </li>
             </ul>
-
         </div>
-
     </section>
+
     <section class="container">
         <!-- 1.3 Nav bar -->
         <div class="collapse navbar-collapse d-flex">
@@ -177,7 +184,7 @@
     <!--2. Banner 1-->
     <section class="container-fluid">
         <div class="">
-            <img src="public/images/common/Approved2.png" alt="Our banner" width="100%" height="200px">
+            <img src="public/images/common/Approved1.png" alt="Our banner" width="100%" height="220px">
         </div>
     </section>
     <!--3. Carousel -->

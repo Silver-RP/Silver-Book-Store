@@ -8,31 +8,26 @@ class SearchController {
 
     public function search() {
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            if (isset($_GET['route']) && $_GET['route'] === 'search' && isset($_GET['subroute']) && $_GET['subroute'] === 'search') {
-                $keyword = isset($_GET['keyword']) ? $_GET['keyword'] : '';
-                $category = isset($_GET['category']) ? $_GET['category'] : 'all';
-                $books = $this->searchModel->search($keyword, $category);
-                header('Content-Type: application/json');
+            $keyword = $_GET['keyword'] ?? null;
 
-                echo json_encode(['books' => $books, 'keyword' => $keyword, 'category' => $category, 'count' => count($books), 'error' => 'qqqqqqqqqq']);
-                echo "<pre>";
-                print_r($books);
-                echo "</pre>";
-
-                // exit();
-            // } else {
-            //     http_response_code(404);
-            //     echo json_encode(['error' => 'Not Found']);
-            //     exit();
+            if ($keyword) {
+                $results = $this->searchModel->search($keyword);
+                
+                require 'app/view/common/SearchResults.php';
+            } else {
+                http_response_code(400);
+                echo '
+                <div class="container py-5 my-5"> 
+                    <h3>Search Results for "<?php echo htmlspecialchars($keyword); ?>"</h3>
+                    <p>No keyword provided</p>
+                </div>';
             }
-        // } else {
-        //     http_response_code(405);
-        //     echo json_encode(['error' => 'Method Not Allowed']);
-        //     exit();
+        } else {
+            http_response_code(405);
+            echo 'Invalid request method';
         }
     }
-    
-   
-    
 }
+
+
 ?>

@@ -4,6 +4,16 @@ session_start();
 
 require_once('../config/database.php');
 
+require_once('model/UserModel.php');
+require_once('model/BookModel.php');
+require_once('model/CategoryModel.php');
+require_once('model/AuthorModel.php');
+require_once('model/PublisherModel.php');
+require_once('model/OrderModel.php');
+require_once('model/CommentModel.php');
+require_once('model/SearchModel.php');
+
+
 if (!isset($_SESSION['user'])) {
     header('Location: /SilverBook/admin/view/layout/login.php');
     exit();
@@ -196,6 +206,33 @@ if (!empty($_GET['act'])) {
                     break;
                 default:
                     $publisherController->index();
+                    break;
+            }
+            break;
+
+        case 'orders':
+            require_once('controller/OrderController.php');
+            $orderController = new OrderController();
+            $action = isset($_GET['action']) ? $_GET['action'] : 'index';
+
+            switch ($action) {
+                case 'index':
+                    $orderController->index();
+                    break;
+                case 'detail':
+                    $orderController->viewOrderDetail();
+                    break;
+                case 'update_status':
+                    $orderController->updateStatus();
+                    break;
+                case 'delete':
+                    $orderController->delete();
+                    break;
+                case 'confirmDelete':
+                    $orderController->confirmDelete();
+                    break;
+                default:
+                    $orderController->index();
                     break;
             }
             break;

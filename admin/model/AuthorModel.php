@@ -1,6 +1,4 @@
 <?php
-    require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/config/database.php');
-
     class AuthorModel{
         private $db;
         public function __construct(){

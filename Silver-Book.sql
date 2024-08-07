@@ -2,27 +2,20 @@ DROP DATABASE IF EXISTS `Silver-Book`;
 
 CREATE DATABASE `Silver-Book`;
 USE `Silver-Book`;
+		
 
-select * from category c;
-select * from book b;
-select * from author a;
-select * from publisher p;
-select * from users u;	
-select * from wishlist w;			
-select * from orders o;
 select * from cart c ;
 select * from review  r;
+select * from orders o;
+select * from order_detail od;
+select * from shipping_information si ;
+select * from payment_information pi2 ;
 
 SELECT * FROM book WHERE book_title LIKE '%a%';
 
 
 drop table users ;
-drop table orders  ;
-drop table order_detail  ;
-drop table comments  ;
-drop table wishlist  ;
-drop table cart  ;
-drop table cartbook  ;
+
 
 delete from author where id = 1000;
 delete from wishlist ;
@@ -76,6 +69,11 @@ CREATE TABLE book (
 ALTER TABLE book ADD COLUMN book_old_price DOUBLE NOT NULL;
 ALTER TABLE book MODIFY book_old_price DOUBLE NULL;
 update book set book_old_price = book_price + 20;
+
+CREATE INDEX idx_cate_id ON book(cate_id);
+CREATE INDEX idx_author_id ON book(author_id);
+CREATE INDEX idx_publisher_id ON book(publisher_id);
+
 
 CREATE TABLE users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -133,16 +131,6 @@ CREATE TABLE cartbook (
 ); 
  
 -- --------------
-
-CREATE TABLE orders (
-    order_id INT AUTO_INCREMENT PRIMARY KEY,
-    order_date DATE NOT NULL,
-    order_total_amount DOUBLE NOT NULL,
-    order_status VARCHAR(20) NOT NULL,
-    order_user_id INT NOT NULL,
-    FOREIGN KEY (order_user_id) REFERENCES users(user_id)
-);
-
 CREATE TABLE review (
     review_id INT AUTO_INCREMENT PRIMARY KEY,
     review_content TEXT NOT NULL,
@@ -155,20 +143,56 @@ CREATE TABLE review (
     FOREIGN KEY (book_id) REFERENCES book(book_id) ON DELETE CASCADE
 );
 
-CREATE TABLE order_detail (
-    order_detail_id INT AUTO_INCREMENT PRIMARY KEY,
-    book_id INT NOT NULL,
-    order_id INT NOT NULL,
-    book_name VARCHAR(255) NOT NULL,
-    unit_price DOUBLE NOT NULL,
-    unit_quantity INT NOT NULL,
-    total_quantity INT NOT NULL,
-    total_number_of_item_types INT NOT NULL,
-    total_price DOUBLE NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (book_id) REFERENCES book(book_id),
-    FOREIGN KEY (order_id) REFERENCES orders(order_id)
+CREATE TABLE shipping_information (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    full_name VARCHAR(255) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    city VARCHAR(100) NOT NULL,
+    state VARCHAR(100) NOT NULL,
+    zip_code VARCHAR(20) NOT NULL,
+    phone_number VARCHAR(20) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
+
+-- Payment Information Table
+CREATE TABLE payment_information (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    payment_method ENUM('credit_card', 'paypal', 'cash') NOT NULL,
+    card_number VARCHAR(20),
+    card_holder_name VARCHAR(100),
+    expiration_date VARCHAR(7),
+    cvv VARCHAR(4),
+    paypal_email VARCHAR(100),
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+-- Orders Table
+CREATE TABLE orders (
+    order_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    shipping_id INT NOT NULL,
+    payment_id INT NOT NULL,
+    total_price DECIMAL(10, 2) NOT NULL,
+    total_books INT NOT NULL,
+    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status ENUM('unpaid', 'paid', 'pending', 'confirmed', 'in delivery', 'received', 'cancelled') DEFAULT 'pending',
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (shipping_id) REFERENCES shipping_information(id),
+    FOREIGN KEY (payment_id) REFERENCES payment_information(id)
+);
+
+CREATE TABLE order_detail (
+    order_item_id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT NOT NULL,
+    book_id INT NOT NULL,
+    quantity INT NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (order_id) REFERENCES orders(order_id),
+    FOREIGN KEY (book_id) REFERENCES book(book_id)
+);
+
 
 
 INSERT INTO category (cate_name, cate_description, cate_image, cate_note)

@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="/SilverBook/public/css/addmin/style.css"> 
   <link rel="stylesheet" href="/SilverBook/public/css/addmin/addUser.css"> 
   <link rel="stylesheet" href="/SilverBook/public/css/addmin/allComments.css"> 
+  <link rel="stylesheet" href="/SilverBook/public/css/addmin/orderDetail.css"> 
 
   <!-- <link rel="stylesheet" type="text/css" href="../../../public/css/addmin/style.css"> (USE for view/books/Allbooks.php) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
@@ -224,7 +225,7 @@
                 Orders
               </a>
               <ul class="dropdown-menu bg-warning ps-4 dr" aria-labelledby="orderDropdown">
-                <li><a class="dropdown-item dr-a" href="#">All Orders</a></li>
+                <li><a class="dropdown-item dr-a" href="?act=orders&action=index">All Orders</a></li>
                 <li><a class="dropdown-item dr-a" href="#">Pending Orders</a></li>
                 <li><a class="dropdown-item dr-a" href="#">Processing Orders</a></li>
                 <li><a class="dropdown-item dr-a" href="#">Completed Orders</a></li>

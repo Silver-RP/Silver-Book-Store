@@ -1,8 +1,4 @@
 <?php
-// require_once('admin/model/BookModel.php');
-// require_once('admin/model/CategoryModel.php');
-// require_once('admin/model/AuthorModel.php');
-// require_once('admin/model/PublisherModel.php');
     class BookController{
         private $bookModel;
         private $bookCateModel;
@@ -16,20 +12,25 @@
             $this->bookPublisherModel = new PublisherModel();
             $this->wishListModel = new WishListModel();
         }
+
         public function showAllBooks(){
             $this->index();
         }
+
         public function index() {
             $limit = 30;
             $limit1 = 8;
             $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
             $offset = ($page - 1) * $limit;
             $offset1 = 1;
+
+            $sortOrder = isset($_GET['sort']) ? $_GET['sort'] : null; 
+
             try {
                 $totalBooks = $this->bookModel->countAllBooks();
                 $totalPages = ceil($totalBooks / $limit);
-                $booksForPage = $this->bookModel->getAllBooks($limit1, $offset1);
-                $books = $this->bookModel->getAllBooks($limit, $offset);
+                $booksForPage = $this->bookModel->getAllBooks($limit1, $offset1, $sortOrder);
+                $books = $this->bookModel->getAllBooks($limit, $offset, $sortOrder);
                 $bookCate = $this->bookCateModel->getAllCate();
                 $bookAuthor = $this->bookAuthorModel->getAllAuthors();
                 if(isset($_SESSION['user']['user_id'])){
@@ -47,18 +48,40 @@
                 echo "Error fetching data: " . $e->getMessage();
             }
         }
+    
+        public function detailBook() {
+            session_start(); 
+            
+            $id = isset($_GET['id']) ? $_GET['id'] : null;
+            if (!$id) {
+                echo "Invalid book ID.";
+                return;
+            }
         
-        public function detailBook(){
-            $id = $_GET['id'];
             $book = $this->bookModel->getBookById($id);
+            if (!$book) {
+                echo "Book not found.";
+                return;
+            }
             $bookCate = $this->bookCateModel->getCategoryById($book['cate_id']);
+            if (!$bookCate) {
+                $bookCate = [];
+            }
             $bookAuthor = $this->bookAuthorModel->getAuthorById($book['author_id']);
-            $bookAuthors = $this->bookAuthorModel->getAllAuthors();
+            if (!$bookAuthor) {
+                $bookAuthor = [];
+            }
             $bookPublisher = $this->bookPublisherModel->getPublisherById($book['publisher_id']);
+            if (!$bookPublisher) {
+                $bookPublisher = [];
+            }
             $booksSameCategory = $this->bookModel->getBooksByCateId($book['cate_id']);
-            if(isset($_SESSION['user']['user_id'])){
+            if (!$booksSameCategory) {
+                $booksSameCategory = [];
+            }
+            if (isset($_SESSION['user']['user_id'])) {
                 $wishList = $this->wishListModel->getBooksWishWithStatus($_SESSION['user']['user_id']);
-            }else{
+            } else {
                 $wishList = [];
             }
             $wishDict = [];
@@ -67,19 +90,30 @@
             }
             require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/app/view/books/detailBook.php');
         }
-
+        
         public function reviewBook() {
             header('Content-Type: application/json');
+            session_start();
 
-            if (!isset($_SESSION['user']['user_id'])) {
-                echo json_encode(['success' => false, 'message' => 'You must login to review']);
-                exit();
-            }
             $data = json_decode(file_get_contents('php://input'), true);
             if (json_last_error() !== JSON_ERROR_NONE) {
                 echo json_encode(['success' => false, 'message' => 'Invalid JSON']);
                 exit();
             }
+            // Check if user is logged in and redirect to book detail page if not
+            if (!isset($_SESSION['user']['user_id'])) {
+                $id = isset($data['book_id']) ? intval($data['book_id']) : null; 
+                if ($id) {
+                    $_SESSION['redirect'] = '?route=books&subroute=detail&id=' . $id;
+                } else {
+                    echo json_encode(['success' => false, 'message' => 'Invalid book ID']);
+                    exit();
+                }
+        
+                echo json_encode(['success' => false, 'message' => 'You must login to review']);
+                exit();
+            }
+        
             $user_id = $_SESSION['user']['user_id'];
             $book_id = isset($data['book_id']) ? intval($data['book_id']) : 0;
             $comment = isset($data['comment']) ? trim($data['comment']) : '';
@@ -97,23 +131,25 @@
                 echo json_encode(['success' => false, 'message' => 'Invalid book ID']);
                 exit();
             }
-
+        
             $result = $this->bookModel->addReview($book_id, $user_id, $comment, $rating);
             if ($result) {
                 echo json_encode(['success' => true, 'message' => 'Review added successfully']);
             } else {
-                echo json_encode(['success' => false, 
-                                  'message' => 'Failed to add review', 
-                                  'result' => $result,
-                                  'data' => $data,
-                                    'user_id' => $user_id,
-                                    'book_id' => $book_id,
-                                    'comment' => $comment,
-                                    'rating' => $rating
-                                ]);
+                echo json_encode([
+                    'success' => false, 
+                    'message' => 'Failed to add review', 
+                    'result' => $result,
+                    'data' => $data,
+                    'user_id' => $user_id,
+                    'book_id' => $book_id,
+                    'comment' => $comment,
+                    'rating' => $rating
+                ]);
             }
         }
-
+        
+        
         public function getBookReviews() {
             header('Content-Type: application/json');
             try {

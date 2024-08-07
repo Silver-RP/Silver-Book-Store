@@ -32,15 +32,12 @@
                                 <?php
                                 $isWished = isset($wishDict[$book['book_id']]) ? $wishDict[$book['book_id']]['is_wished'] : 0;
                                 ?>
-                                <button class="favorite-btn <?php echo $isWished ? 'added' : ''; ?>" 
-                                        data-book-id="<?php echo htmlspecialchars($book['book_id']); ?>" 
-                                        onclick="toggleWishlist(this)">
+                                <button class="favorite-btn <?php echo $isWished ? 'added' : ''; ?>" data-book-id="<?php echo htmlspecialchars($book['book_id']); ?>" onclick="toggleWishlist(this)">
                                     <i class="fa <?php echo $isWished ? 'fa-heart' : 'fa-regular fa-heart'; ?>"></i>
                                 </button>
                                 <a href="?route=books&subroute=detail&id=<?php echo htmlspecialchars($book['book_id']) ?>">
                                     <div class="image-container px-3">
-                                        <img src="public/images/book_name/<?php echo htmlspecialchars($book['book_image']) ?>" 
-                                                alt="<?php echo htmlspecialchars($book['book_name']) ?>">
+                                        <img src="public/images/book_name/<?php echo htmlspecialchars($book['book_image']) ?>" alt="<?php echo htmlspecialchars($book['book_name']) ?>">
                                     </div>
                                 </a>
                                 <div class="content">
@@ -58,10 +55,10 @@
                                         <div class="text-danger fw-bolder">Sale: $<?php echo htmlspecialchars($book['book_price']) ?></div>
                                         <del style="margin-left: 10px;">$<?php echo htmlspecialchars($book['book_old_price']) ?></del>
                                     </div>
-                                    <button class="btn btn-primary btn-buy">Buy Now</button>
-                                    <button class="btn btn-secondary btn-add"
-                                            data-book-id="<?php echo htmlspecialchars($book['book_id']); ?>"
-                                            onclick="addToCart(this)">
+                                    <a class="btn btn-primary btn-buy" href="?route=order&subroute=buynow&id=<?php echo htmlspecialchars($book['book_id']) ?>">
+                                        Buy Now
+                                    </a>
+                                    <button class="btn btn-secondary btn-add" data-book-id="<?php echo htmlspecialchars($book['book_id']); ?>" onclick="addToCart(this)">
                                         Add to Cart
                                     </button>
                                     <p class="mt-2 mb-1">Rating: ★★★★☆</p>
@@ -125,18 +122,24 @@
                             </span>
                         </h4>
                     </div>
+                    
+                    <!-- All books render section -->
                     <div class="d-flex justify-content-center opacity-25">( Page <?php echo $page; ?> of <?php echo $totalPages; ?>) </div>
+                    <!-- Sorting button -->
+                    <div class="container ms-5 sorting-buttons">
+                        <a href="?route=books&subroute=show" class="btn btn-light btn-sort">Default</a>
+                        <a href="?route=books&subroute=show&sort=ASC" class="btn btn-light btn-sort">Sort by Price: Low to High</a>
+                        <a href="?route=books&subroute=show&sort=DESC" class="btn btn-light btn-sort">Sort by Price: High to Low</a>
+                    </div>
                     <div class="container text-center pt-3 mt-4">
                         <div class="row ms-5 row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
                             <?php foreach ($books as $book) : ?>
                                 <div class="col my-3" style="max-width:20%">
                                     <div class="container book-item book-card">
                                         <?php
-                                            $isWished = isset($wishDict[$book['book_id']]) ? $wishDict[$book['book_id']]['is_wished'] : 0;
+                                        $isWished = isset($wishDict[$book['book_id']]) ? $wishDict[$book['book_id']]['is_wished'] : 0;
                                         ?>
-                                        <button class="favorite-btn <?php echo $isWished ? 'added' : ''; ?>" 
-                                                data-book-id="<?php echo htmlspecialchars($book['book_id']); ?>" 
-                                                onclick="toggleWishlist(this)">
+                                        <button class="favorite-btn <?php echo $isWished ? 'added' : ''; ?>" data-book-id="<?php echo htmlspecialchars($book['book_id']); ?>" onclick="toggleWishlist(this)">
                                             <i class="fa <?php echo $isWished ? 'fa-heart' : 'fa-regular fa-heart'; ?>"></i>
                                         </button>
                                         <a href="?route=books&subroute=detail&id=<?php echo htmlspecialchars($book['book_id']); ?>">
@@ -159,10 +162,10 @@
                                                 <div class="text-danger fw-bolder">Sale: $<?php echo htmlspecialchars($book['book_price']) ?></div>
                                                 <del style="margin-left: 10px;">$<?php echo htmlspecialchars($book['book_old_price']) ?></del>
                                             </div>
-                                            <button class="btn btn-primary btn-buy">Buy Now</button>
-                                            <button class="btn btn-secondary btn-add"
-                                                    data-book-id="<?php echo htmlspecialchars($book['book_id']); ?>"
-                                                    onclick="addToCart(this)">
+                                            <a class="btn btn-primary btn-buy" href="?route=order&subroute=buynow&id=<?php echo htmlspecialchars($book['book_id']) ?>">
+                                                Buy Now
+                                            </a>
+                                            <button class="btn btn-secondary btn-add" data-book-id="<?php echo htmlspecialchars($book['book_id']); ?>" onclick="addToCart(this)">
                                                 Add to Cart
                                             </button>
                                             <p class="mt-2 mb-1">Rating: ★★★★☆</p>

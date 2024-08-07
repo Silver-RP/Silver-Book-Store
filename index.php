@@ -16,10 +16,10 @@ require_once('admin/model/AuthorModel.php');
 require_once('admin/model/PublisherModel.php');
 require_once('admin/model/UserModel.php');
 require_once('admin/model/SearchModel.php');
+require_once('admin/model/OrderModel.php');
 
 require_once('app/model/WishListModel.php');
 require_once('app/model/CartModel.php');
-require_once('app/model/CartBookModel.php');
 
 require_once('app/controller/HomeController.php');
 require_once('app/view/layout/Header.php');
@@ -41,14 +41,22 @@ if (isset($_GET['route'])) {
             if (isset($_GET['subroute'])) {
                 $subroute = $_GET['subroute'];
                 switch ($subroute) {
-                    case 'show':   $book->showAllBooks(); break;
-                    case 'detail': $book->detailBook();   break;
-                    case 'review': $book->reviewBook(); break;
-                    case 'reviews': 
+                    case 'show':
+                        $book->showAllBooks();
+                        break;
+                    case 'detail':
+                        $book->detailBook();
+                        break;
+                    case 'review':
+                        $book->reviewBook();
+                        break;
+                    case 'reviews':
                         echo '<script>console.log("reviews")</script>';
-                        $book->getBookReviews(); break;
-                    default: 
-                        $book->showAllBooks();       break;
+                        $book->getBookReviews();
+                        break;
+                    default:
+                        $book->showAllBooks();
+                        break;
                 }
             }
             break;
@@ -59,27 +67,38 @@ if (isset($_GET['route'])) {
             if (isset($_GET['subroute'])) {
                 $subroute = $_GET['subroute'];
                 switch ($subroute) {
-                    case 'signin': $user->signin(); 
+                    case 'signin':
+                        $user->signin();
                         break;
-                    case 'viewsignup': $user->viewSignup(); 
+                    case 'viewsignup':
+                        $user->viewSignup();
                         break;
-                    case 'signup': $user->signup(); 
+                    case 'signup':
+                        $user->signup();
                         break;
-                    case 'signout': $user->signout(); 
+                    case 'signout':
+                        $user->signout();
                         break;
-                    case 'profile': $user->profile(); 
+                    case 'profile':
+                        $user->profile();
                         break;
-                    case 'viewEditprofile': $user->viewEditProfile(); 
+                    case 'viewEditprofile':
+                        $user->viewEditProfile();
                         break;
-                    case 'edit': $user->editProfile(); 
+                    case 'edit':
+                        $user->editProfile();
                         break;
-                    case 'viewChangePass': $user->viewChangePass(); 
+                    case 'viewChangePass':
+                        $user->viewChangePass();
                         break;
-                    case 'changepass': $user->changePass(); 
+                    case 'changepass':
+                        $user->changePass();
                         break;
-                    case 'forgotPassword': $user->forgotPassword();
+                    case 'forgotPassword':
+                        $user->forgotPassword();
                         break;
-                    case 'checkEmailPhone': $user->checkEmailPhone();
+                    case 'checkEmailPhone':
+                        $user->checkEmailPhone();
                         break;
                         // case 'checkout':
                         //     $user = new UserController();
@@ -122,6 +141,10 @@ if (isset($_GET['route'])) {
                         $wish = new WishListController();
                         $wish->view();
                         break;
+                    case 'addAll':
+                        $wish = new WishListController();
+                        $wish->addAllWish();
+                        break;
                     case 'remove':
                         $wish = new WishListController();
                         $wish->removeWish();
@@ -150,7 +173,11 @@ if (isset($_GET['route'])) {
                         $cart = new CartController();
                         $cart->viewBooksInCart();
                         break;
-                    case'update':
+                    case 'getAllItems':
+                        $cart = new CartController();
+                        $cart->getAllItems();
+                        break;
+                    case 'update':
                         $cart = new CartController();
                         $cart->updateQuantityBookInCart();
                         break;
@@ -158,10 +185,14 @@ if (isset($_GET['route'])) {
                         $cart = new CartController();
                         $cart->removeBookFromCart();
                         break;
-                    // case 'checkout':
-                    //     $cart = new CartController();
-                    //     $cart->checkout();
-                    //     break;
+                    case 'clear':
+                        $cart = new CartController();
+                        $cart->removeAllCart();
+                        break;
+                    case 'removeAll':
+                        $cart = new CartController();
+                        $cart->removeBookFromCartPage();
+                        break;
                     default:
                         $home = new HomeController();
                         $home->view();
@@ -170,22 +201,41 @@ if (isset($_GET['route'])) {
             }
             break;
         case 'search':
-            require_once('app/controller/SearchController.php');
+            require_once 'app/controller/SearchController.php';
             $search = new SearchController();
+            if (isset($_GET['subroute']) && $_GET['subroute'] === 'search') {
+                $search->search();
+            } else {
+                http_response_code(404);
+                echo '<p>Invalid route</p>';
+            }
+            break;
+        case 'order':
+            require_once('app/controller/OrderController.php');
+            $order = new OrderController();
             if (isset($_GET['subroute'])) {
                 $subroute = $_GET['subroute'];
                 switch ($subroute) {
-                    case 'search':
-                        echo 'Debug: Reached search case'; 
-
-                        $search->search();
+                    case 'buynow':
+                        $order->buyNow();
+                        break;  
+                    case 'checkout':
+                        $order->checkout();
                         break;
-                        default:
-                        echo '<p>Invalid route</p>';
+                    case 'success':
+                        $order->orderSuccess();
+                        break;
+                    case 'viewOrder':
+                        $order->viewOrder();
+                        break;
+                    default:
+                        $home = new HomeController();
+                        $home->view();
                         break;
                 }
             }
             break;
+
         default:
             $home = new HomeController();
             $home->view();

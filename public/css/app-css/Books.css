@@ -78,3 +78,25 @@
 .favorite-btn:hover .fa-heart {
     color: red; 
 }
+
+/* Sorting button */
+
+.sorting-options {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column !important;
+}
+
+.sorting-options .form-select,
+.sorting-options .btn {
+    display: inline-block;
+}
+
+.sorting-options .btn {
+    margin-left: 10px;
+}
+
+.btn-sort {
+    max-width: 100px !important;
+    font-size: xx-small !important;
+}

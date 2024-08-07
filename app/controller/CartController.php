@@ -114,6 +114,48 @@
                 exit;
             }
         }
+
+        public function removeAllCart(){
+            session_start();
+            $userId = $_SESSION['user']['user_id'];
+            $result = $this->cartModel->removeAllCart($userId);
+            if ($result) {
+                $_SESSION['cart'] = 0;
+                echo json_encode(['success' => true, 'message' => 'All books removed from cart']);
+            } else {
+                echo json_encode(['success' => false, 'message' => 'Failed to remove all books from cart']);
+            }
+            exit;
+        }
+
+        public function removeBookFromCartPage(){
+            session_start();
+            $userId = $_SESSION['user']['user_id'];
+            $result = $this->cartModel->removeAllCart($userId);
+            if ($result) {
+                $_SESSION['cart'] = 0;
+                echo json_encode(['success' => true, 'message' => 'All books removed from cart']);
+            } else {
+                echo json_encode(['success' => false, 'message' => 'Failed to remove all books from cart']);
+            }
+        }
+
+        public function getAllItems() {
+            header('Content-Type: application/json');
+            session_start(); 
+        
+            $userId = $_SESSION['user']['user_id'];
+            $items = $this->cartModel->getBooksFromCart($userId);
+        
+            $response = [
+                'books' => array_map(function($item) {
+                    return ['book_id' => $item['book_id']];
+                }, $items)
+            ];
+        
+            echo json_encode($response);
+            exit();
+        }
         
     }
 

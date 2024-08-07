@@ -1,5 +1,4 @@
 <?php
-    require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/config/database.php');
     class CategoryModel{
         private $db;
         public function __construct(){

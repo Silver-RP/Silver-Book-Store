@@ -82,31 +82,18 @@
     background-color: #dadad6 !important;
     color: black !important;
 }
-
-.focus1{
-    border: 1px solid #b7b8ac !important;
-    padding: 0px !important ;
+.dropdown-menu-lg {
+    font-size: 1rem;
 }
-
-.bt{
-    border-radius: 1px !important;
-    opacity: 0.7;
+.input-search:focus{
+    border-color: none !important;
+    outline-color: navajowhite ;
+    border-color: #f59506 !important;
+    box-shadow: 0 0 0 0.2rem rgba(245, 149, 6, 0.25) !important;
 }
-
-.fr{
-    width: 700px !important;
-    height: 100%;
-    border: none !important;
-    outline: none !important;
-    box-shadow: none !important;
-}
-
-.bts{
-    margin-left: -1px !important;
-    padding: 10px 24px !important;
-    border-radius: 0px !important;
-    border-color: rgb(228, 147, 48) !important;
-    background-color: rgb(228, 147, 48) !important;
+.btn-lg {
+    font-size: 1rem !important; 
+    padding: 0.75rem 1.25rem;
 }
 
 .nav-l1{

@@ -67,9 +67,9 @@
             <div class="col-12 col-md-6 col-lg-3">
               <h5 class="fs-6 opacity-80 fw-medium">QUICK HELP</h5>
               <ul class="nav justify-content-start">
-                <li class="nav-item">
+                <li class="nav-item w-100">
                   <a href="#" class="text-secondary-emphasis link-underline link-underline-opacity-0 alink"> Help Center</a>
-                </li>
+                </li><br>
                 <li class="nav-item">
                   <a href="#" class="text-secondary-emphasis link-underline link-underline-opacity-0 alink"> Covid Safety</a>
                 </li>
@@ -96,23 +96,23 @@
 
             <div class="col-12 col-md-6 col-lg-3">
               <h5 class="fs-6 opacity-80 fw-medium">SHOP BY CATEGORY</h5>
-              <ul class="nav justify-content-start">
-                <li class="nav-item">
+              <ul class="nav d-flex justify-content-start">
+                <li class="nav-item w-100">
                   <a href="#" class="text-secondary-emphasis link-underline link-underline-opacity-0 alink"> Books</a>
-                </li>
-                <li class="nav-item">
+                </li><br>
+                <li class="nav-item w-100">
                   <a href="#" class="text-secondary-emphasis link-underline link-underline-opacity-0 alink"> Fiction</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item w-100">
                   <a href="#" class="text-secondary-emphasis link-underline link-underline-opacity-0 alink"> Nonfiction</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item w-100">
                   <a href="#" class="text-secondary-emphasis link-underline link-underline-opacity-0 alink"> Kids</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item w-100">
                   <a href="#" class="text-secondary-emphasis link-underline link-underline-opacity-0 alink"> Teens & YA</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item w-100">
                   <a href="#" class="text-secondary-emphasis link-underline link-underline-opacity-0 alink"> eBooks</a>
                 </li>
                 <li class="nav-item">
@@ -155,8 +155,8 @@
                   Watch your savings add up!
                 </p>
                 <p class="p-fs">
-                  <a href="" class="me-3 text-black">Learn More </a>
-                  <a href="" class="text-black"> Sign Up Free</a>
+                  <a href="" class="me-3 text-black fw-medium">Learn More </a>
+                  <a href="" class="text-black fw-medium"> Sign Up Free</a>
                 </p>
               </div>
             </div>
@@ -232,6 +232,7 @@
     <script src="public/js/review.js"></script>
     <script src="public/js/wishList.js" ></script>
     <script src="public/js/search.js" ></script>
+    <script src="public/js/placeOrder.js" ></script>
       
 
 </body>

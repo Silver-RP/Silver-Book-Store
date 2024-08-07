@@ -18,17 +18,41 @@ class Database {
             return false;
         }
     }
-
-    public function getAll($sql, $params = []) {
-        $stmt = $this->query($sql, $params);
-        if ($stmt) {
-            $results = [];
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                $results[] = $row;
-            }
-            return $results;
+    public function execute($sql, $params = []) {
+        try {
+            $stmt = $this->conn->prepare($sql);
+            return $stmt->execute($params);
+        } catch (PDOException $e) {
+            echo "Execution failed: " . $e->getMessage();
+            return false;
         }
-        return [];
+    }
+
+    // public function getAll($sql, $params = []) {
+    //     $stmt = $this->query($sql, $params);
+    //     if ($stmt) {
+    //         $results = [];
+    //         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    //             $results[] = $row;
+    //         }
+    //         return $results;
+    //     }
+    //     return [];
+    // }
+
+    
+    public function getAll($sql, $params = []) {
+        $stmt = $this->conn->prepare($sql);
+        // echo "Prepared SQL: " . $stmt->queryString . "\n";
+        // print_r($params);
+        if ($stmt->execute($params)) {
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            // print_r($result);
+            return $result;
+        } else {
+            // print_r($stmt->errorInfo());
+            return null;
+        }
     }
 
     public function getOne($sql, $params = []) {
@@ -40,7 +64,11 @@ class Database {
     }
 
     public function insert($sql, $params = []) {
-        return $this->query($sql, $params);
+        if ($this->query($sql, $params)) {
+            return $this->conn->lastInsertId();
+        } else {
+            return false;
+        }
     }
 
     public function delete($sql, $params = []) {
@@ -72,13 +100,5 @@ class Database {
         }
     }
 
-    // public function execute($query, $params = []) {
-    //     $stmt = $this->conn->prepare($query);
-    //     foreach ($params as $key => $value) {
-    //         $stmt->bindValue($key, $value);
-    //     }
-    //     return $stmt->execute();
-    // }
-    
 }
 ?>
