@@ -86,6 +86,10 @@ document.addEventListener("DOMContentLoaded", function () {
             expirationDate = document.getElementById("expiration-date") ? document.getElementById("expiration-date").value.trim() : '';
             cvv = document.getElementById("cvv") ? document.getElementById("cvv").value.trim() : '';
 
+            if(cardNumber === '' || cardHolderName === '' || expirationDate === '' || cvv === '') {
+                alert("Please fill in all credit card details.");
+                return;
+            }
             // if (!validateCardNumber(cardNumber) || !validateExpirationDate(expirationDate) || !validateCVV(cvv)) {
             //     alert("Please fill in valid credit card details.");
             //     return;

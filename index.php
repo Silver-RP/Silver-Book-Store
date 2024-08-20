@@ -100,26 +100,12 @@ if (isset($_GET['route'])) {
                     case 'checkEmailPhone':
                         $user->checkEmailPhone();
                         break;
-                        // case 'checkout':
-                        //     $user = new UserController();
-                        //     $user->checkout();
-                        //     break;
-                        // case 'order':
-                        //     $user = new UserController();
-                        //     $user->order();
-                        //     break;
-                        // case 'orderdetail':
-                        //     $user = new UserController();
-                        //     $user->orderDetail();
-                        //     break;
-                        // case 'orderhistory':
-                        //     $user = new UserController();
-                        //     $user->orderHistory();
-                        //     break;
-                        // case 'orderhistorydetail':
-                        //     $user = new UserController();
-                        //     $user->orderHistoryDetail();
-                        //     break;
+                    case 'activate':
+                        $user->activate();
+                        break;
+                    case 'resetPassword':
+                        $user->resetPassword();
+                        break;
                     default:
                         $home = new HomeController();
                         $home->view();
@@ -228,6 +214,14 @@ if (isset($_GET['route'])) {
                     case 'viewOrder':
                         $order->viewOrder();
                         break;
+                        
+                    // case 'confirmOrder':
+                    //     $order->confirmOrder(); // confirm order by sent email
+                    //     break;
+
+                    // case 'cancelOrder':
+                    //     $order->cancelOrder();
+                    //     break;
                     default:
                         $home = new HomeController();
                         $home->view();

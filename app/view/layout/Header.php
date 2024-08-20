@@ -69,7 +69,7 @@
                 <ul class="nav justify-content-end nav-uu">
                     <li class="nav-item">
                         <div class="dropdown">
-                            <?php if (isset($_SESSION['user'])) : ?>
+                            <?php if (isset($_SESSION['user']['user_name'])) : ?>
                                 <a class="btn nav-link  nav-l dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <span class=""> <i class="fa-solid fa-user"></i> Hello <?php echo $_SESSION['user']['user_name']; ?> </span>
                                 </a>
