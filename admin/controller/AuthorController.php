@@ -1,5 +1,5 @@
 <?php
-    require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/admin/model/AuthorModel.php');
+    require_once(BASE_PATH.'admin/model/AuthorModel.php');
 
     class AuthorController{
         private $authorModel;
@@ -14,7 +14,7 @@
                 $totalAuthors = $this->authorModel->countAllAuthors();
                 $totalPages = ceil($totalAuthors / $limit);
                 $authors = $this->authorModel->index($limit, $offset);
-                require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/admin/view/books/allAuthors.php');
+                require_once(BASE_PATH.'admin/view/books/allAuthors.php');
             } catch (Exception $e) {
                 // Handle exceptions, log errors, or show a friendly error message
                 echo "Error fetching data: " . $e->getMessage();

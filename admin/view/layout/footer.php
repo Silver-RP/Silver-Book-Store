@@ -51,8 +51,8 @@
   });
   
 </script>
-<script src="/SilverBook/public/js/adminAdd.js"></script>
-<script src="/SilverBook/public/js/adminComments.js"></script>
+<script src="/Silver-Book-Store/public/js/adminAdd.js"></script>
+<script src="/Silver-Book-Store/public/js/adminComments.js"></script>
 
 
 </body>

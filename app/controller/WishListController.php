@@ -37,7 +37,7 @@ class WishListController {
         }else{
             $wishList = [];
         }
-        require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/app/view/books/wishBooks.php');
+        require_once(BASE_PATH.'app/view/books/wishBooks.php');
     }
     public function addAllWish() {
         header('Content-Type: application/json');

@@ -1,5 +1,5 @@
 <?php
-require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/admin/model/OrderModel.php');
+require_once(BASE_PATH.'admin/model/OrderModel.php');
 class OrderController {
     private $orderModel;
 
@@ -10,23 +10,32 @@ class OrderController {
     public function index() {
         $limit = 10;
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $page = max(1, $page);
         $offset = ($page - 1) * $limit;
-
+    
         try {
             $totalOrders = $this->orderModel->countAllOrders();
-            $totalPages = ceil($totalOrders / $limit);
-            
+            $totalPages = max(1, ceil($totalOrders / $limit)); 
             if ($page > $totalPages) {
                 $page = $totalPages;
                 $offset = ($page - 1) * $limit;
             }
-
+    
             $orders = $this->orderModel->getAllOrders($limit, $offset);
-            require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/admin/view/orders/AllOrders.php');
+            if (!$orders) {
+                echo "No orders found.";
+                return;  
+            }
+    
+            // if (!$orders) {
+            //     throw new Exception("No orders found");
+            // }
+            require_once(BASE_PATH . 'admin/view/orders/AllOrders.php');
         } catch (Exception $e) {
             echo "Error fetching data: " . $e->getMessage();
         }
     }
+    
 
     public function viewOrderDetail() {
         $orderId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
@@ -42,7 +51,7 @@ class OrderController {
                 echo "Order not found.";
                 return;
             }
-            require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/admin/view/orders/OrderDetail.php');
+            require_once(BASE_PATH.'admin/view/orders/OrderDetail.php');
         } catch (Exception $e) {
             echo "Error fetching order details: " . $e->getMessage();
         }

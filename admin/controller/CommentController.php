@@ -1,5 +1,5 @@
 <?php
-require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/admin/model/CommentModel.php');
+require_once(BASE_PATH.'admin/model/CommentModel.php');
 
 class CommentController
 {
@@ -15,7 +15,7 @@ class CommentController
         $reviews = $this->commentModel->getAllReviews($limit, $offset);
         $totalComments = $this->commentModel->countAllReviews();
         $totalPages = ceil($totalComments / $limit);
-        require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/admin/view/comments/AllComments.php');
+        require_once(BASE_PATH.'admin/view/comments/AllComments.php');
     }
     public function show() {
         $id = isset($_GET['id']) ? $_GET['id'] : null;
@@ -46,7 +46,7 @@ class CommentController
         $reviews = $this->commentModel->getHiddenReviews($limit, $offset);
         $totalComments = $this->commentModel->countHiddenReviews();
         $totalPages = ceil($totalComments / $limit);
-        require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/admin/view/comments/HideComments.php');
+        require_once(BASE_PATH.'admin/view/comments/HideComments.php');
     }
 
 

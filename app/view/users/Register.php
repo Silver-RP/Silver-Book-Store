@@ -38,9 +38,9 @@
                 </div>
                 <!-- Email or Phone -->
                 <div class="form-group-signin">
-                    <label for="emailPhone" class="label-signin">Email or Phone number:</label>
+                    <label for="emailPhone" class="label-signin">Email:</label>
                     <input type="text" id="emailPhone" name="emailPhone" required class="input-signin"
-                    placeholder="Enter Your Email or Phone Number">
+                    placeholder="Enter Your Email">
                     <span id="emailPhoneFeedback" name = emailPhoneFeedback></span>
                 </div>
                 <!-- Password -->

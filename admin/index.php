@@ -2,6 +2,7 @@
 session_abort();
 session_start();
 
+require_once('../config/config.php');
 require_once('../config/database.php');
 
 require_once('model/UserModel.php');
@@ -15,12 +16,12 @@ require_once('model/SearchModel.php');
 
 
 if (!isset($_SESSION['user'])) {
-    header('Location: /SilverBook/admin/view/layout/login.php');
+    header('Location: /Silver-Book-Store/admin/view/layout/login.php');
     exit();
 }else if(!isset($_SESSION['user']['user_role']) || $_SESSION['user']['user_role'] != 0){
     echo "<script>
             alert('You do not have permission to access this page!');
-            window.location.href='/SilverBook/admin/view/layout/login.php';
+            window.location.href='/Silver-Book-Store/admin/view/layout/login.php';
         </script>";
     exit();
 }

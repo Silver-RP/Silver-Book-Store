@@ -1,8 +1,8 @@
 <?php
 class DatabaseConnection {
     private static $servername = "localhost";
-    private static $username = "rp";
-    private static $password = "";
+    private static $username = "sauke110";
+    private static $password = "sauke110@Provip";
     private static $dbname = "Silver-Book";
     private static $conn = null;
 

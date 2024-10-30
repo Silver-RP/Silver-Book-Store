@@ -30,7 +30,9 @@ class UserController
 
             // Retrieve user information
             $user = $this->userModel->getUserByUsername($username);
-
+            if(!$user){
+                throw new PDOException("User not found: ". $username) ;
+            }
             if ($user) {
                 // Check if the account is active
                 if ($user['status'] !== 'active') {
@@ -126,7 +128,7 @@ class UserController
                 'name' => $name,
                 'birthday' => $birthday,
                 'gender' => $gender,
-                'emailPhone' => $emailPhone,
+                'user_email' => $emailPhone,
                 'hashedPassword' => $hashedPassword,
                 'activationCode' => $activationCode,
                 'activationExpires' => $activationExpires
@@ -141,8 +143,8 @@ class UserController
                     echo "<script>alert('Sign up successful, but failed to send verification email. Please contact support.'); window.location.href='index.php?route=user&subroute=signin';</script>";
                 }
             } else {
-                var_dump($newUser);
-                exit;
+                // var_dump($newUser);
+                // exit;
                 echo "<script>alert('Registration failed, please try again!'); window.location.href='index.php?route=user&subroute=viewsignup';</script>";
             }
         }
@@ -167,9 +169,9 @@ class UserController
             $mail->isHTML(true);
             $mail->Subject = 'Email Verification';
             $mail->Body    = "Please click the link below to verify your email address:<br><br>
-                              <a href='http://localhost:3000/SilverBook/index.php?route=user&subroute=activate&email=" . urlencode($email) . "&code=" . urlencode($activationCode) . "'>
+                              <a href='http://localhost:8090/Silver-Book-Store/index.php?route=user&subroute=activate&email=" . urlencode($email) . "&code=" . urlencode($activationCode) . "'>
                               Verify Email</a>";
-            $mail->AltBody = "Please click the link to verify your email address: http://localhost:3000/SilverBook/index.php?route=user&subroute=activate&email=" . urlencode($email) . "&code=" . urlencode($activationCode);
+            $mail->AltBody = "Please click the link to verify your email address: http://localhost:8090/Silver-Book-Store/index.php?route=user&subroute=activate&email=" . urlencode($email) . "&code=" . urlencode($activationCode);
 
             $mail->send();
             return true;
@@ -484,7 +486,6 @@ class UserController
         }
     }
     
-
     public function checkEmailPhone(){
         header('Content-Type: application/json');
         $input = json_decode(file_get_contents('php://input'), true);

@@ -1,5 +1,5 @@
 <?php
-require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/admin/model/UserModel.php');
+require_once(BASE_PATH.'admin/model/UserModel.php');
 
     class UserController{
         private $userController;
@@ -20,7 +20,7 @@ require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/adm
             }
         }
         public function add(){
-            require_once ('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/admin/view/users/AddUser.php');
+            require_once (BASE_PATH.'admin/view/users/AddUser.php');
             if(isset($_POST['add'])){
                 $username = $_POST['name'];
                 $userBirthday = $_POST['birthday'];
@@ -60,7 +60,7 @@ require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/adm
             if(isset($_GET['id'])){
                 $userId = $_GET['id'];
                 $user = $this->userController->getUserById($userId);
-                require_once ('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/admin/view/users/EditUser.php');
+                require_once (BASE_PATH.'admin/view/users/EditUser.php');
 
                 if (isset($_POST['edit'])) {
                     $username = $_POST['name'];

@@ -54,7 +54,7 @@
                                 </a>
                             </td>
                             <td class="align-middle">
-                                <img src="/SilverBook/public/images/categories/<?php echo htmlspecialchars($category['cate_image']); ?>" alt="<?php echo htmlspecialchars($category['cate_image']); ?>" style="max-width: 80px; max-height: 100px;">
+                                <img src="/Silver-Book-Store/public/images/categories/<?php echo htmlspecialchars($category['cate_image']); ?>" alt="<?php echo htmlspecialchars($category['cate_image']); ?>" style="max-width: 80px; max-height: 100px;">
                             </td>
                             <td class="align-middle"><?php echo htmlspecialchars($category['cate_description']); ?></td>
                             <td class="align-middle"><?php echo htmlspecialchars($category['cate_note']); ?></td>
@@ -103,4 +103,4 @@
     </nav>
 </main>
 
-<?php require_once("/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/admin/view/layout/footer.php"); ?>
+<?php require_once(BASE_PATH."admin/view/layout/footer.php"); ?>

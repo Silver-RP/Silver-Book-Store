@@ -103,4 +103,4 @@
     </nav>
 </main>
 
-<?php require_once("/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/admin/view/layout/footer.php"); ?>
+<?php require_once(BASE_PATH."admin/view/layout/footer.php"); ?>

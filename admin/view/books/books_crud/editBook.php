@@ -33,7 +33,7 @@
                     <div class="mb-3">
                         <label for="book_image" class="form-label">Book Image</label>
                         <input type="file" class="form-control" id="book_image" name="book_image">
-                        <img src="/SilverBook/public/images/book_name/<?php echo htmlspecialchars($book['book_image']); ?>" alt="<?php echo htmlspecialchars($book['book_image']); ?>" style="max-width: 80px; max-height: 100px; margin-top:3px">
+                        <img src="/Silver-Book-Store/public/images/book_name/<?php echo htmlspecialchars($book['book_image']); ?>" alt="<?php echo htmlspecialchars($book['book_image']); ?>" style="max-width: 80px; max-height: 100px; margin-top:3px">
                     </div>
                     
                     <div class="mb-3">

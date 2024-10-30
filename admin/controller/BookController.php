@@ -1,9 +1,9 @@
 <?php
 // require_once('../../../model/BookModel.php');
-require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/admin/model/BookModel.php');
-require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/admin/model/CategoryModel.php');
-require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/admin/model/AuthorModel.php');
-require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/admin/model/PublisherModel.php');
+require_once(BASE_PATH.'admin/model/BookModel.php');
+require_once(BASE_PATH.'admin/model/CategoryModel.php');
+require_once(BASE_PATH.'admin/model/AuthorModel.php');
+require_once(BASE_PATH.'admin/model/PublisherModel.php');
 
 class BookController
 {
@@ -26,7 +26,7 @@ class BookController
             $totalPages = ceil($totalBooks / $limit);
             $books = $this->bookModel->getAllBooks($limit, $offset);
             $bookCate = $this->bookCateModel->getAllCate();
-            require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/admin/view/books/allBooks.php');
+            require_once(BASE_PATH.'admin/view/books/allBooks.php');
         } catch (Exception $e) {
             echo "Error fetching data: " . $e->getMessage();
         }
@@ -44,7 +44,7 @@ class BookController
             echo "Book not found";
             return;
         }
-        require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/admin/view/books/books_crud/viewDetailBook.php');
+        require_once(BASE_PATH.'admin/view/books/books_crud/viewDetailBook.php');
     }
     public function add(){
         $cates = $this->bookCateModel->getAllCate();
@@ -88,7 +88,7 @@ class BookController
                 $fileExtension = strtolower(end($fileNameCmps));
                 // $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
 
-                $uploadFileDir = '/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/public/images/book_name/';
+                $uploadFileDir = BASE_PATH.'public/images/book_name/';
                 $destPath = $uploadFileDir . $fileName;
 
                 if (!is_dir($uploadFileDir)) {
@@ -134,7 +134,7 @@ class BookController
         $categories = $this->bookCateModel->getAllCate();
         $authors = $this->bookAuthorModel->getAllAuthors();
         $publishers = $this->bookPublisherModel->getAllPublishers();
-        require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/admin/view/books/books_crud/editBook.php');
+        require_once(BASE_PATH.'admin/view/books/books_crud/editBook.php');
     }
     public function update() {
         $page = isset($_GET['page']) ? $_GET['page'] : 1;
@@ -153,7 +153,7 @@ class BookController
         $publisher_id = $_POST['publisher_id'];
     
         if ($_FILES['book_image']['name']) {
-            $uploadDir = '/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/public/images/book_name/'; 
+            $uploadDir = BASE_PATH.'public/images/book_name/'; 
             $uploadFile = $uploadDir . basename($_FILES['book_image']['name']);
     
             if (move_uploaded_file($_FILES['book_image']['tmp_name'], $uploadFile)) {

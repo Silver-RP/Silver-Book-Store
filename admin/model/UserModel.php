@@ -8,7 +8,7 @@ class UserModel
     }
     public function addUser($name, $birthday, $gender, $emailPhone, $hashedPassword, $activationCode, $activationExpires)
     {
-        $sql = "INSERT INTO users (user_name, user_birthday, user_gender, user_email_phone, user_password, activation_code, activation_expires) 
+        $sql = "INSERT INTO users (user_name, user_birthday, user_gender, user_email, user_password, activation_code, activation_expires) 
                 VALUES (:name, :birthday, :gender, :emailPhone, :hashedPassword, :activationCode, :activationExpires)";
         $params = [
             ':name' => $name,
@@ -26,7 +26,7 @@ class UserModel
 
     public function getUserToCheck($emailPhone, $activationCode)
     {
-        $sql = "SELECT * FROM users WHERE user_email_phone = ? AND activation_code = ? AND status = 'inactive'";
+        $sql = "SELECT * FROM users WHERE user_email = ? AND activation_code = ? AND status = 'inactive'";
         return $this->db->getOne($sql, [$emailPhone, $activationCode]);
     }
 
@@ -38,7 +38,7 @@ class UserModel
 
     public function adminAddUser($name, $birthday, $gender, $emailPhone, $password, $role)
     {
-        $sql = "INSERT INTO users(user_name, user_birthday, user_gender, user_email_phone, user_password, user_role) 
+        $sql = "INSERT INTO users(user_name, user_birthday, user_gender, user_email, user_password, user_role) 
                     VALUES(?,?,?,?,?,?)";
         return $this->db->insert($sql, [$name, $birthday, $gender, $emailPhone, $password, $role]);
     }
@@ -64,7 +64,7 @@ class UserModel
     }
     public function getUserByUsername($username)
     {
-        $sql = "SELECT * FROM users WHERE user_email_phone = ?";
+        $sql = "SELECT * FROM users WHERE user_email = ?";
         return $this->db->getOne($sql, [$username]);
     }
     public function getUserById($id)

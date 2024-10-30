@@ -7,10 +7,10 @@
   <title>Silver-Book Store</title>
 
   <!-- <link rel="stylesheet" href="../public/css/addmin/style.css"> (use for admin/index.php)  -->
-  <link rel="stylesheet" href="/SilverBook/public/css/addmin/style.css"> 
-  <link rel="stylesheet" href="/SilverBook/public/css/addmin/addUser.css"> 
-  <link rel="stylesheet" href="/SilverBook/public/css/addmin/allComments.css"> 
-  <link rel="stylesheet" href="/SilverBook/public/css/addmin/orderDetail.css"> 
+  <link rel="stylesheet" href="/Silver-Book-Store/public/css/addmin/style.css"> 
+  <link rel="stylesheet" href="/Silver-Book-Store/public/css/addmin/addUser.css"> 
+  <link rel="stylesheet" href="/Silver-Book-Store/public/css/addmin/allComments.css"> 
+  <link rel="stylesheet" href="/Silver-Book-Store/public/css/addmin/orderDetail.css"> 
 
   <!-- <link rel="stylesheet" type="text/css" href="../../../public/css/addmin/style.css"> (USE for view/books/Allbooks.php) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
@@ -170,7 +170,7 @@
                   <span>Need Help?</span>
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="/SilverBook/admin/view/layout/login.php">
+                <a class="dropdown-item" href="/Silver-Book-Store/admin/view/layout/login.php">
                   <i class="bi bi-box-arrow-right"></i>
                   <span>Sign Out</span>
                 </a>

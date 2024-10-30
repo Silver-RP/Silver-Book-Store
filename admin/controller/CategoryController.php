@@ -1,5 +1,5 @@
 <?php
-    require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/admin/model/CategoryModel.php');
+    require_once(BASE_PATH.'admin/model/CategoryModel.php');
     class CategoryController{
         private $categoryModel;
         public function __construct(){
@@ -13,7 +13,7 @@
                 $totalCategories = $this->categoryModel->countAllCategories();
                 $totalPages = ceil($totalCategories / $limit);
                 $categories = $this->categoryModel->index($limit, $offset);
-                require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/admin/view/books/allCategories.php');
+                require_once(BASE_PATH.'admin/view/books/allCategories.php');
             } catch (Exception $e) {
                 echo "Error fetching data: " . $e->getMessage();
             }
@@ -37,7 +37,7 @@
                     $fileNameCmps = explode(".", $fileName);
                     $fileExtension = strtolower(end($fileNameCmps));
                     
-                    $uploadFileDir = '/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/public/images/categories/';
+                    $uploadFileDir = BASE_PATH.'public/images/categories/';
                     $destPath = $uploadFileDir . $fileName;
                     
                     if (!is_dir($uploadFileDir)) {
@@ -86,7 +86,7 @@
                     $fileNameCmps = explode(".", $fileName);
                     $fileExtension = strtolower(end($fileNameCmps));
                     
-                    $uploadFileDir = '/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/public/images/categories/';
+                    $uploadFileDir = BASE_PATH.'public/images/categories/';
                     $destPath = $uploadFileDir . $fileName;
                     
                     if (!is_dir($uploadFileDir)) {

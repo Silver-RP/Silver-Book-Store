@@ -21,7 +21,7 @@
                 </div>
                 <div class="form-group">
                     <label for="user_email_phone" class="fw-bold">Email/Phone:</label>
-                    <input type="text" class="form-control" id="user_email_phone" name="user_email_phone" value="<?php echo $user['user_email_phone']; ?>" readonly>
+                    <input type="text" class="form-control" id="user_email_phone" name="user_email_phone" value="<?php echo $user['user_email']; ?>" readonly>
                 </div>
                 <div class="buttons">
                     <button class="btn btn-custom-left btn-outline-secondary" name="edit">Save</button>

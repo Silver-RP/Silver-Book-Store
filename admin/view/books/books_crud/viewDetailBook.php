@@ -11,7 +11,7 @@
     <div class="container pt-3">
         <div class="row">
             <div class="col-md-3">
-                <img src="/SilverBook/public/images/book_name/<?php echo htmlspecialchars($book['book_image']); ?>" alt="book_image" class="img-fluid" width="300px" height="300px">
+                <img src="/Silver-Book-Store/public/images/book_name/<?php echo htmlspecialchars($book['book_image']); ?>" alt="book_image" class="img-fluid" width="300px" height="300px">
             </div>
             <div class="col-md-9">
                 <h4>Book Name: <?php echo htmlspecialchars($book['book_name']); ?></h4>   

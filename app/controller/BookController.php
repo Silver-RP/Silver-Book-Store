@@ -1,4 +1,5 @@
 <?php
+require_once('BASE_PATH' . '/../config/config.php');
     class BookController{
         private $bookModel;
         private $bookCateModel;
@@ -43,7 +44,8 @@
                 foreach ($wishList as $wish) {
                     $wishDict[$wish['book_id']] = $wish;
                 }
-                require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/app/view/books/showAllBooks.php');
+                // require_once(BASE_PATH.'/app/view/books/showAllBooks.php');
+                require_once('/usr/local/var/www/Silver-Book-Store/app/view/books/showAllBooks.php');
             } catch (Exception $e) {
                 echo "Error fetching data: " . $e->getMessage();
             }
@@ -88,7 +90,7 @@
             foreach ($wishList as $wish) {
                 $wishDict[$wish['book_id']] = $wish;
             }
-            require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/app/view/books/detailBook.php');
+            require_once(BASE_PATH.'app/view/books/detailBook.php');
         }
         
         public function reviewBook() {

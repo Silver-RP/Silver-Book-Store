@@ -2,6 +2,7 @@
     session_start(); 
     session_unset(); 
     session_destroy(); 
+    require_once('../../../config/config.php');
 ?>
 
 <!DOCTYPE html>
@@ -104,8 +105,8 @@
     </div>
 
     <?php
-    require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/config/database.php');
-    require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/admin/model/UserModel.php');
+    require_once(BASE_PATH.'config/database.php');
+    require_once(BASE_PATH.'admin/model/UserModel.php');
         $userModel = new UserModel();
         if (isset($_POST['login-admin'])) {
             session_start();
@@ -115,7 +116,7 @@
             if ($user) {
                 if (password_verify($password, $user['user_password'])) {
                     $_SESSION['user'] = $user;
-                    header('Location: /SilverBook/admin/index.php?act=home');
+                    header('Location: /Silver-Book-Store/admin/index.php?act=home');
                     exit();
                 } else {
                     echo "<script>

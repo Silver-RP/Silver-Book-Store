@@ -1,7 +1,9 @@
 <?php
+require_once('config.php');
+require_once(BASE_PATH . 'utils/DatabaseConnection.php');
+// require_once(__DIR__ . '/../utils/DatabaseConnection.php');
 
-// require_once('../../../utils/DatabaseConnection.php');
-require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/utils/DatabaseConnection.php');
+
 class Database {
     private $conn;
 
@@ -62,6 +64,8 @@ class Database {
         }
         return null;
     }
+  
+    
 
     public function insert($sql, $params = []) {
         if ($this->query($sql, $params)) {

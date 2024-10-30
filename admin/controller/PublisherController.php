@@ -1,5 +1,5 @@
 <?php
-        require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/admin/model/PublisherModel.php');
+        require_once(BASE_PATH.'admin/model/PublisherModel.php');
 
         class PublisherController{
             private $publisherModel;
@@ -14,7 +14,7 @@
                     $totalPublishers = $this->publisherModel->countAllPublishers();
                     $totalPages = ceil($totalPublishers / $limit);
                     $publishers = $this->publisherModel->index($limit, $offset);
-                    require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/admin/view/books/allPublishers.php');
+                    require_once(BASE_PATH.'admin/view/books/allPublishers.php');
                 } catch (Exception $e) {
                     echo "Error fetching data: " . $e->getMessage();
                 }

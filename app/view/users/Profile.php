@@ -19,8 +19,8 @@
                         <td><?php echo $user['user_gender']; ?></td>
                     </tr>
                     <tr>
-                        <td>Email/Phone:</td>
-                        <td><?php echo $user['user_email_phone']; ?></td>
+                        <td>Email:</td>
+                        <td><?php echo $user['user_email']; ?></td>
                     </tr>
                 </table>
                 <div class="buttons btn-prfile">

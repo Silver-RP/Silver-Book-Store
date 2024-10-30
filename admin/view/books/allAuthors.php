@@ -2,7 +2,7 @@
 
 <!-- allBooks.php -->
 
-<!-- <?php require_once("/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/admin/view/layout/header.php"); ?> -->
+<!-- <?php require_once(BASE_PATH."admin/view/layout/header.php"); ?> -->
 
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 bg-warning-subtle">
     <div class="d-flex justify-content-between py-3 border-bottom">
@@ -108,4 +108,4 @@
     </nav>
 </main>
 
-<?php require_once("/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/admin/view/layout/footer.php"); ?>
+<?php require_once(BASE_PATH."admin/view/layout/footer.php"); ?>
