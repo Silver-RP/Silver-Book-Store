@@ -4,7 +4,7 @@ CREATE DATABASE `Silver-Book`;
 USE `Silver-Book`;
 		
 
-select * from category c ;
+select * from users u  ;
 select * from cart c ;
 select * from wishlist w ;
 select * from review  r;
@@ -22,7 +22,7 @@ drop table users ;
 
 delete from author where id = 1000;
 delete from wishlist ;
-delete from users;
+delete from users where user_id > 3;
 delete from orders where order_id = 5;
 delete from orders;
 
@@ -63,7 +63,7 @@ CREATE TABLE book (
     book_description TEXT NOT NULL,
     book_year_of_publication YEAR NOT NULL,
     book_price DOUBLE NOT NULL,
-    book_old_price DOUBLE NOT NULL,
+    book_old_price DOUBLE NULL,
     book_date_of_storage DATE NOT NULL,
     book_stock_quantity INT NOT NULL,
     cate_id INT NOT NULL,
@@ -73,8 +73,6 @@ CREATE TABLE book (
     FOREIGN KEY (author_id) REFERENCES author(author_id),
     FOREIGN KEY (publisher_id) REFERENCES publisher(publisher_id)
 );
-ALTER TABLE book ADD COLUMN book_old_price DOUBLE NOT NULL;
-ALTER TABLE book MODIFY book_old_price DOUBLE NULL;
 update book set book_old_price = book_price + 20;
 
 CREATE INDEX idx_cate_id ON book(cate_id);
@@ -85,13 +83,38 @@ CREATE INDEX idx_publisher_id ON book(publisher_id);
 CREATE TABLE users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     user_name VARCHAR(50) NOT NULL,
-    user_birthday VARCHAR(50) NOT NULL,
-    user_gender VARCHAR(50) NOT NULL,
-    user_email_phone VARCHAR(20) NOT NULL,
+    user_birthday DATE NOT NULL, 
+    user_gender ENUM('male', 'female', 'other', 'Prefer not to say') NOT NULL,
+    user_email VARCHAR(255) NOT NULL UNIQUE,
+    user_phone VARCHAR(20),
     user_password VARCHAR(100) NOT NULL,
-    user_role VARCHAR(20) NOT NULL default 1, 	 -- 0 is admin, 1 is user 
-    user_date_register TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    user_role TINYINT(1) NOT NULL DEFAULT 1, 
+    user_date_register TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    activation_code VARCHAR(255),
+    activation_expires TIMESTAMP NULL,
+    status ENUM('inactive', 'active') DEFAULT 'inactive'
 );
+
+ALTER TABLE users
+ADD COLUMN activation_code VARCHAR(255) NOT NULL AFTER user_password,
+ADD COLUMN activation_expires TIMESTAMP NULL AFTER activation_code,
+ADD COLUMN status ENUM('inactive', 'active') DEFAULT 'inactive' AFTER activation_expires;
+
+UPDATE users
+SET status = 'active'
+WHERE status = 'inactive';
+
+
+CREATE TABLE forgot_password (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    reset_code VARCHAR(255) NOT NULL,
+    reset_expires DATETIME NOT NULL,
+    used TINYINT(1) DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
+);
+
 
 CREATE TABLE wishlist (
     wishlist_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -189,6 +212,17 @@ CREATE TABLE orders (
     FOREIGN KEY (shipping_id) REFERENCES shipping_information(id),
     FOREIGN KEY (payment_id) REFERENCES payment_information(id)
 );
+
+CREATE TABLE order_detail (
+    order_item_id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT NOT NULL,
+    book_id INT NOT NULL,
+    quantity SMALLINT UNSIGNED NOT NULL, 
+    price DECIMAL(10, 2) NOT NULL CHECK (price >= 0), 
+    FOREIGN KEY (order_id) REFERENCES orders(order_id) ON DELETE CASCADE,
+    FOREIGN KEY (book_id) REFERENCES book(book_id)
+);
+
 
 CREATE TABLE order_detail (
     order_item_id INT AUTO_INCREMENT PRIMARY KEY,

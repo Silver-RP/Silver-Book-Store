@@ -169,9 +169,9 @@ class UserController
             $mail->isHTML(true);
             $mail->Subject = 'Email Verification';
             $mail->Body    = "Please click the link below to verify your email address:<br><br>
-                              <a href='http://localhost:8090/Silver-Book-Store/index.php?route=user&subroute=activate&email=" . urlencode($email) . "&code=" . urlencode($activationCode) . "'>
+                              <a href='".BASE_URL."index.php?route=user&subroute=activate&email=" . urlencode($email) . "&code=" . urlencode($activationCode) . "'>
                               Verify Email</a>";
-            $mail->AltBody = "Please click the link to verify your email address: http://localhost:8090/Silver-Book-Store/index.php?route=user&subroute=activate&email=" . urlencode($email) . "&code=" . urlencode($activationCode);
+            $mail->AltBody = "Please click the link to verify your email address: ".BASE_URL."http://localhost:8090/Silver-Book-Store/index.php?route=user&subroute=activate&email=" . urlencode($email) . "&code=" . urlencode($activationCode);
 
             $mail->send();
             return true;
@@ -346,7 +346,7 @@ class UserController
                 console.log('Forgot Password');
               </script>";
 
-        require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/app/view/users/ForgotPassword.php');
+        require_once( BASE_PATH. 'app/view/users/ForgotPassword.php');
         
         if (isset($_POST['forgotPassword'])) {
             $emailPhone = trim($_POST['emailPhone']);
@@ -398,9 +398,9 @@ class UserController
             $mail->isHTML(true);
             $mail->Subject = 'Password Reset';
             $mail->Body    = "Please click the link below to reset your password:<br><br>
-                              <a href='http://localhost:3000/SilverBook/index.php?route=user&subroute=resetPassword&email=" . urlencode($email) . "&code=" . urlencode($resetCode) . "'>
+                              <a href=".BASE_URL."index.php?route=user&subroute=resetPassword&email=" . urlencode($email) . "&code=" . urlencode($resetCode) . "'>
                               Reset Password</a>";
-            $mail->AltBody = "Please click the link to reset your password: http://localhost:3000/SilverBook/index.php?route=user&subroute=resetPassword&email=" . urlencode($email) . "&code=" . urlencode($resetCode);
+            $mail->AltBody = "Please click the link to reset your password: ".BASE_URL."index.php?route=user&subroute=resetPassword&email=" . urlencode($email) . "&code=" . urlencode($resetCode);
     
             $mail->send();
             return true;
@@ -428,7 +428,7 @@ class UserController
                 } else {
                     session_regenerate_id(true);
                     $_SESSION['reset_user'] = $user;
-                    require_once('/Applications/XAMPP/xamppfiles/htdocs/Lap_trinh_PHP/SilverBook/app/view/users/ResetPassword.php');
+                    require_once( BASE_PATH .'app/view/users/ResetPassword.php');
     
                     if (isset($_POST['resetPassword'])) {
                         $password = htmlspecialchars(trim($_POST['password']));
